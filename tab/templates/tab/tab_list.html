@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tab Sharing Platform</title>
+</head>
+
+<body>
+    <h1>Available Tabs</h1>
+
+    {% for tab in object_list %}
+    <div style="margin-bottom: 20px; border: 1px solid #ddd; padding: 10px;">
+        <h2>{{ tab.title }}</h2>
+        <p><strong>Artist:</strong> {{ tab.artist }}</p>
+        <p><strong>Genre:</strong> {{ tab.genre }}</p>
+        <p><strong>Difficulty:</strong> {{ tab.difficulty }}</p>
+        <p><strong>Uploaded by:</strong> {{ tab.creator.username }}</p>
+        <p><strong>Views:</strong> {{ tab.views }}</p>
+    </div>
+    {% empty %}
+    <p>No tabs available at the moment. Check back later!</p>
+    {% endfor %}
+</body>
+
+</html>
