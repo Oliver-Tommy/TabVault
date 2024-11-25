@@ -11,7 +11,8 @@ class Tab(models.Model):
         ('Hard', 'Hard'),
     ]
 
-    title = models.CharField(max_length=100)         # Tab title
+    title = models.CharField(max_length=100, unique=True)         # Tab title
+    slug = models.SlugField(max_length=100, unique=True)         # Slug field
     artist = models.CharField(max_length=100)        # Artist name
     genre = models.CharField(max_length=50)          # Genre of the music
     difficulty = models.CharField(max_length=50, choices=DIFFICULTY_CHOICES)  # Difficulty level
