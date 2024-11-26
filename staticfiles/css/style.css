@@ -74,11 +74,12 @@ body {
 .post-title {
     margin-top: 10%;
     margin-left: 5%;
+    color: #2F2E41;
 }
 
 .post-subtitle {
     margin-left: 5%;
-    color: #E6E6E6; 
+    color: #2F2E41; 
 }
 
 .btn-signup,

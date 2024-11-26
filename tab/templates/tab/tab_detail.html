@@ -1,0 +1,35 @@
+{% extends 'base.html' %} 
+{% block content %}
+
+{% load static %}
+
+<div class="masthead">
+    <div class="container">
+        <div class="row g-0">
+            <div class="col-md-6 masthead-text">
+                <!-- Tab title -->
+                <h1 class="post-title">{{ tab.title }}</h1>
+                <!-- Tab artist, difficulty and the created date -->
+                <p class="post-subtitle">{{ tab.artist }} | Difficulty: {{ tab.difficulty }} | Published: {{ tab.created_at|date:"F j, Y" }}</p>
+            </div>
+            <div class="d-none d-md-block col-md-6 masthead-image">
+                <img src="{% static 'images/placeholder.jpg' %}" class="scale" alt="placeholder">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col card mb-4 mt-3 left top">
+            <div class="card-body">
+                <!-- Tab content -->
+                <p class="card-text">
+                    <a href="{{ tab.file.url }}" class="btn btn-primary">Download Tab</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
