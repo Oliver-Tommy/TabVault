@@ -1,0 +1,176 @@
+body {
+    background-color: #FFF1E6; 
+    font-family: 'Roboto', sans-serif;
+    color: #2F2E41;
+}
+
+.brand {
+    font-family: 'Merriweather', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #2F2E41; 
+}
+
+.red-o {
+    color: #F8B195; 
+}
+
+.thin {
+    font-weight: 300;
+}
+
+.light-bg {
+    background-color: #FFF1E6; 
+}
+
+.dark-bg {
+    background-color: #2F2E41; 
+}
+
+.main-bg {
+    background-color: #FFF1E6; 
+}
+
+.card {
+    border: 1px solid #E6E6E6; 
+    background-color: #FFFFFF;
+}
+
+.image-container {
+    position: relative;
+}
+
+.image-flash {
+    position: absolute;
+    bottom: 5%;
+    min-width: 30%;
+    left: -2px;
+    background-color: #B8E1DD; 
+    color: #2F2E41; 
+}
+
+.scale {
+    width: 100%;
+    height: auto;
+}
+
+.author {
+    color: #FFF1E6; 
+    margin: 4px;
+    text-transform: uppercase;
+}
+
+.post-link {
+    text-decoration: none;
+    color: #2F2E41; 
+    font-family: 'Merriweather', serif;
+}
+
+.post-link:hover,
+.page-link {
+    color: #F8B195; 
+}
+
+.post-title {
+    margin-top: 10%;
+    margin-left: 5%;
+}
+
+.post-subtitle {
+    margin-left: 5%;
+    color: #E6E6E6; 
+}
+
+.btn-signup,
+.btn-edit {
+    background-color: #B8E1DD; 
+    color: #2F2E41; 
+    border: none;
+}
+
+.btn-signup:hover,
+.btn-signup:active {
+    background-color: #F8B195; 
+    color: #FFF1E6; 
+}
+
+.link {
+    color: #F8B195; 
+    text-decoration: none;
+}
+
+.link:hover,
+.link:active {
+    color: #2F2E41; 
+    text-decoration: underline;
+}
+
+.btn-like {
+    color: #F8B195; 
+    border: none;
+    background: transparent;
+}
+
+.btn-delete {
+    color: #FFF1E6; 
+    background: #F8B195; 
+    border: none;
+}
+
+.btn-like:hover,
+.btn-like:active {
+    color: #F8B195; 
+    background: transparent;
+    border: none;
+}
+
+.faded {
+    color: #E6E6E6; 
+}
+
+.approval {
+    color: #FEC8D8; 
+}
+
+.masthead {
+    margin-top: 10px;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    height: 33vh;
+    width: 100%;
+}
+
+.masthead-text {
+    background-color: #B8E1DD; 
+    color: #FFF1E6; 
+    font-family: 'Merriweather', serif;
+}
+
+.masthead-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.masthead-image:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 90%;
+    height: 100%;
+    width: 150%;
+    background: #B8E1DD; 
+    transform: skew(15deg);
+}
+
+.page-link {
+    color: #F8B195; 
+    background-color: #FFF1E6; 
+    border: 1px solid #E6E6E6; 
+}
+
+.page-link:hover {
+    color: #FFF1E6; 
+    background-color: #F8B195; 
+    border-color: #B8E1DD; 
+}
