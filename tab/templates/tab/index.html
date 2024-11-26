@@ -13,21 +13,27 @@
                 <div class="col-md-4">
                     <div class="card mb-4 shadow-sm">
                         <div class="card-body">
-                            <a href="#" class="post-link"><h5 class="card-title text-center">{{ tab.title }}</h5></a>
-                            <p class="text-muted text-center">Artist: {{ tab.artist }}</p>
-                            <p class="text-center">Difficulty: <strong>{{ tab.difficulty }}</strong></p>
-                            <hr />
-                            <p class="text-center text-muted">Uploaded by: 
-                                {% comment %} <a href="{% url 'creator_profile' tab.creator.id %}">
-                                    {{ tab.creator.username }}
-                                </a> {% endcomment %}
-                            </p>
-                            <p class="text-center text-muted">Published: {{ tab.created_at|date:"F j, Y" }}</p>
-                            <div class="text-center">
-                                {% comment %} <a href="{% url 'tab_detail' tab.id %}" class="btn btn-primary btn-sm">
-                                    View Tab
-                                </a> {% endcomment %}
-                            </div>
+                            <a href="#" class="mb-4 shadow-sm text-decoration-none text-reset">
+                                    <h5 class="card-title text-center">{{ tab.title }}</h5>
+                                    <p class="text-muted text-center">Artist: {{ tab.artist }}</p>
+                                    <p class="text-center">Difficulty: <strong>{{ tab.difficulty }}</strong></p>
+                                    <hr />
+                                    
+                                    <p class="text-center text-muted">Uploaded by: 
+                                        {{ tab.creator.username }}
+                                    </p>
+                                    {% comment %} <p class="text-center text-muted">Uploaded by: 
+                                        <a href="{% url 'creator_profile' tab.creator.id %}">
+                                            {{ tab.creator.username }}
+                                        </a> {% endcomment %}
+                                    </p>
+                                    <p class="text-center text-muted">Published: {{ tab.created_at|date:"F j, Y" }}</p>
+                                </div>
+                                <div class="text-center">
+                                    {% comment %} <a href="{% url 'tab_detail' tab.id %}" class="btn btn-primary btn-sm">
+                                        View Tab
+                                    </a> {% endcomment %}
+                            </a>
                         </div>
                     </div>
                 </div>
