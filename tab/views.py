@@ -6,5 +6,5 @@ from .models import Tab
 
 class TabList(generic.ListView):
     model = Tab
-    template_name = "tab_list.html"
+    template_name = "tab/index.html"
     paginate_by = 6
