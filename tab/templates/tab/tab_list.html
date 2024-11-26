@@ -1,28 +1,68 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tab Sharing Platform</title>
-</head>
+{% block content %}
 
-<body>
-    <h1>Available Tabs</h1>
+<!-- index.html content starts here -->
+<div class="container-fluid">
+    <div class="row">
 
-    {% for tab in object_list %}
-    <div style="margin-bottom: 20px; border: 1px solid #ddd; padding: 10px;">
-        <h2>{{ tab.title }}</h2>
-        <p><strong>Artist:</strong> {{ tab.artist }}</p>
-        <p><strong>Genre:</strong> {{ tab.genre }}</p>
-        <p><strong>Difficulty:</strong> {{ tab.difficulty }}</p>
-        <p><strong>Uploaded by:</strong> {{ tab.creator.username }}</p>
-        <p><strong>Views:</strong> {{ tab.views }}</p>
+        <!-- Tab Listings Column -->
+        <div class="col-12 mt-3">
+            <div class="row">
+                {% for tab in tab_list %}
+                <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">{{ tab.title }}</h5>
+                            <p class="text-muted text-center">Artist: {{ tab.artist }}</p>
+                            <p class="text-center">Difficulty: <strong>{{ tab.difficulty }}</strong></p>
+                            <hr />
+                            <p class="text-center text-muted">Uploaded by: 
+                                {% comment %} <a href="{% url 'creator_profile' tab.creator.id %}">
+                                    {{ tab.creator.username }}
+                                </a> {% endcomment %}
+                            </p>
+                            <p class="text-center text-muted">Published: {{ tab.created_at|date:"F j, Y" }}</p>
+                            <div class="text-center">
+                                {% comment %} <a href="{% url 'tab_detail' tab.id %}" class="btn btn-primary btn-sm">
+                                    View Tab
+                                </a> {% endcomment %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% if forloop.counter|divisibleby:3 %}
+            </div>
+            <div class="row">
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
     </div>
-    {% empty %}
-    <p>No tabs available at the moment. Check back later!</p>
-    {% endfor %}
-</body>
 
-</html>
+    <!-- Pagination -->
+    {% if is_paginated %}
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+            <li class="page-item">
+                <a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; Previous</a>
+            </li>
+            {% endif %}
+            {% for num in page_obj.paginator.page_range %}
+            <li class="page-item {% if page_obj.number == num %}active{% endif %}">
+                <a href="?page={{ num }}" class="page-link">{{ num }}</a>
+            </li>
+            {% endfor %}
+            {% if page_obj.has_next %}
+            <li class="page-item">
+                <a href="?page={{ page_obj.next_page_number }}" class="page-link">Next &raquo;</a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+</div>
+
+<!-- index.html content ends here -->
+{% endblock %}
