@@ -175,3 +175,15 @@ body {
     background-color: #F8B195; 
     border-color: #B8E1DD; 
 }
+
+.red {
+    color: #FF6961;
+}
+
+.orange {
+    color: #FF964F;
+}
+
+.green {
+    color: #80ef80;
+}
