@@ -26,6 +26,9 @@ def tab_detail(request, slug):
     queryset = Tab.objects
     tab = get_object_or_404(queryset, slug=slug)
 
+    tab.views += 1
+    tab.save()
+
     return render(
         request,
         "tab/tab_detail.html",

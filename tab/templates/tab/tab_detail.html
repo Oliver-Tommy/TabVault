@@ -11,6 +11,7 @@
                 <h1 class="post-title">{{ tab.title }}</h1>
                 <!-- Tab artist, difficulty and the created date -->
                 <p class="post-subtitle">{{ tab.artist }} | Difficulty: {{ tab.difficulty }} | Published: {{ tab.created_at|date:"F j, Y" }}</p>
+                <p class="post-subtitle mt-5">Views: {{ tab.views }}</p>
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
                 <img src="{% static 'images/placeholder.jpg' %}" class="scale" alt="placeholder">
@@ -25,7 +26,8 @@
             <div class="card-body">
                 <!-- Tab content -->
                 <p class="card-text">
-                    <a href="{{ tab.file.url }}" class="btn btn-secondary">Download Tab</a>
+                    <a href="{{ tab.file.url }}" target="_blank" class="btn btn-secondary">Download Tab</a>
+                    {% comment %} <iframe src="{{ tab.file.url }}" width="100%" height="600px"></iframe> {% endcomment %}
                 </p>
             </div>
         </div>
