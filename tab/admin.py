@@ -10,6 +10,7 @@ class TabAdmin(SummernoteModelAdmin):
     search_fields = ['title']
     list_filter = ('difficulty', 'genre',)
     prepopulated_fields = {'slug': ('title',)}
+    readonly_fields = ('views',)
 
 
 # Register your models here.
