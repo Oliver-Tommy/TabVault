@@ -2,7 +2,6 @@
 {% block content %}
     {% load static %}
     {% load star_filters %}
-
     <div class="masthead">
         <div class="container">
             <div class="row g-0">
@@ -29,8 +28,8 @@
                 <div class="card-body">
                     <!-- Tab content -->
                     <p class="card-text">
-                        <a href="{{ tab.file.url }}" target="_blank" class="btn btn-secondary">Download Tab</a>
-                        {% comment %} <iframe src="{{ tab.file.url }}" width="100%" height="600px"></iframe> {% endcomment %}
+                        <a href="{{ tab.file.url }}" target="_blank" id="download-btn" class="btn">Download Tab</a>
+                        <iframe src="{{ tab.file.url }}" width="100%" height="600px"></iframe>
                     </p>
                 </div>
             </div>
@@ -49,28 +48,21 @@
         <!-- Displaying Reviews -->
         <div class="row">
             <div class="col-md-8 card mb-4 mt-3">
-                <h3>Reviews:</h3>
+                <h3 class="m-3 mt-4">Reviews:</h3>
                 <div class="card-body">
                     <!-- Iterate through each review in the reviews queryset -->
                     {% for review in reviews %}
-                    <div class="p-2 reviews">
-                        <p class="font-weight-bold">
-                            {{ review.user.username }}
-                            <span class="font-weight-normal">
-                                {{ review.created_at|date:"F j, Y, g:i a" }}
-                            </span> rated:
-                            <strong>
-                                {{ review.rating|stars_full }}{{ review.rating|stars_empty }}
-                            </strong>
-                        </p>
-                        <div id="review{{ review.id }}">
-                            {{ review.comment|linebreaks }}
+                        <div class="p-2 reviews">
+                            <p class="font-weight-bold">
+                                {{ review.user.username }}
+                                <span class="font-weight-normal">{{ review.created_at|date:"F j, Y, g:i a" }}</span> rated:
+                                <strong>{{ review.rating|stars_full }}{{ review.rating|stars_empty }}</strong>
+                            </p>
+                            <div id="review{{ review.id }}">{{ review.comment|linebreaks }}</div>
                         </div>
-                    </div>
-                    <hr>
+                        <hr>
                     {% endfor %}
                 </div>
-                
             </div>
         </div>
     </div>

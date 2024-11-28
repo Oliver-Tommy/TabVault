@@ -187,3 +187,13 @@ body {
 .green {
     color: #80ef80;
 }
+
+#download-btn {
+    background-color: #FEC8D8;
+    font-size: 20px;
+}
+
+#download-btn:hover {
+    background-color: #fd85a9;
+    font-size: 20px;
+}
