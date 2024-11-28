@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from .models import Tab, Review
+from .forms import ReviewForm
 
 # Create your views here.
 
@@ -34,6 +35,16 @@ def tab_detail(request, slug):
     reviews = Review.objects.filter(tab=tab).order_by("-created_at")
     review_count = reviews.count()
 
+    if request.method == "POST":
+        review_form = ReviewForm(data=request.POST)
+        if review_form.is_valid():
+            review = review_form.save(commit=False)
+            review.user = request.user
+            review.tab = tab
+            review.save()
+
+    review_form = ReviewForm()
+
     # increment view count
     tab.views += 1
     tab.save()
@@ -45,6 +56,7 @@ def tab_detail(request, slug):
             "tab": tab,
             "reviews": reviews,
             "review_count": review_count,
+            "review_form": review_form,
         },
     )
     

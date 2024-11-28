@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
+{% load static %}
+{% load star_filters %}
+{% load crispy_forms_tags %}
 {% block content %}
-    {% load static %}
-    {% load star_filters %}
     <div class="masthead">
         <div class="container">
             <div class="row g-0">
@@ -28,8 +29,18 @@
                 <div class="card-body">
                     <!-- Tab content -->
                     <p class="card-text">
-                        <a href="{{ tab.file.url }}" target="_blank" id="download-btn" class="btn">Download Tab</a>
-                        <iframe src="{{ tab.file.url }}" width="100%" height="600px"></iframe>
+                        <a href="{{ tab.file.url }}"
+                           target="_blank"
+                           id="download-btn"
+                           class="btn">Download Tab</a>
+                        {% comment %} <iframe src="{{ tab.file.url }}" width="100%" height="600px"></iframe> {% endcomment %}
+                        {% comment %} <embed id="embedded_pdf"
+        src="{{ tab.file.url }}"
+        type="application/pdf"
+        width="800"
+        height="1000"> {% endcomment %}
+                        {% comment %} <object data="{{ tab.file.url }}" width="800" height="500">
+                        </object> {% endcomment %}
                     </p>
                 </div>
             </div>
@@ -62,6 +73,22 @@
                         </div>
                         <hr>
                     {% endfor %}
+                </div>
+            </div>
+            <!-- Creating New Comments -->
+            <div class="col-md-4 card mb-4 mt-3">
+                <div class="card-body">
+                    {% if user.is_authenticated %}
+                        <h3>Leave a review:</h3>
+                        <p>Posting as: {{ user.username }}</p>
+                        <form id="reviewForm" method="post" style="margin-top: 1.3em;">
+                            {{ review_form | crispy }}
+                            {% csrf_token %}
+                            <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit</button>
+                        </form>
+                    {% else %}
+                        <p>Log in to leave a review</p>
+                    {% endif %}
                 </div>
             </div>
         </div>
