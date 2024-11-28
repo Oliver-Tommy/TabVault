@@ -35,6 +35,10 @@ def tab_detail(request, slug):
     reviews = Review.objects.filter(tab=tab).order_by("-created_at")
     review_count = reviews.count()
 
+    print(tab.file.url)
+    url = tab.file.url.replace("http", "https")
+    print(url)
+
     if request.method == "POST":
         review_form = ReviewForm(data=request.POST)
         if review_form.is_valid():
@@ -57,6 +61,7 @@ def tab_detail(request, slug):
             "reviews": reviews,
             "review_count": review_count,
             "review_form": review_form,
+            "pdf": url,
         },
     )
     

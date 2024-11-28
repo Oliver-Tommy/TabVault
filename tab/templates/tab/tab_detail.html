@@ -29,18 +29,12 @@
                 <div class="card-body">
                     <!-- Tab content -->
                     <p class="card-text">
-                        <a href="{{ tab.file.url }}"
+                        <a href="{{ pdf }}"
                            target="_blank"
                            id="download-btn"
                            class="btn">Download Tab</a>
-                        {% comment %} <iframe src="{{ tab.file.url }}" width="100%" height="600px"></iframe> {% endcomment %}
-                        {% comment %} <embed id="embedded_pdf"
-        src="{{ tab.file.url }}"
-        type="application/pdf"
-        width="800"
-        height="1000"> {% endcomment %}
-                        {% comment %} <object data="{{ tab.file.url }}" width="800" height="500">
-                        </object> {% endcomment %}
+                        <object class="mt-4" data="{{ pdf }}" width="100%" height="500">
+                        </object>
                     </p>
                 </div>
             </div>

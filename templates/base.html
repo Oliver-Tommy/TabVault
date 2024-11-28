@@ -23,7 +23,7 @@
     </head>
     <body class="d-flex flex-column h-100 main-bg">
         <!-- Navigation -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <nav class="navbar navbar-expand-lg navbar-light light-bg mb-5">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{% url 'home' %}">
                     <span class="brand">Tab<span class="highlight">Vault</span></span>
@@ -63,34 +63,34 @@
                             </li>
                         {% endif %}
                     </ul>
+                    {% if user.is_authenticated %}
+                        <p class="text-end m-3">You are logged in as {{ user }}</p>
+                    {% else %}
+                        <p class="text-end m-3">You are not logged in</p>
+                    {% endif %}
                 </div>
             </div>
         </nav>
         <main class="flex-shrink-0 main-bg">
-            {% if user.is_authenticated %}
-                <p class="text-end m-3">You are logged in as {{ user }}</p>
-            {% else %}
-                <p class="text-end m-3">You are not logged in</p>
-            {% endif %}
             {% block content %}
                 <!-- Content Goes Here -->
             {% endblock content %}
         </main>
         <!-- Footer -->
-        <footer class="footer mt-auto py-3 dark-bg">
-            <p class="m-0 text-center text-white mb-2">Made for Guitar Enthusiasts</p>
-            <p class="m-0 text-center text-white">
+        <footer class="footer mt-auto py-3 light-bg">
+            <p class="m-0 text-center footer-text mb-2">Made for Guitar Enthusiasts</p>
+            <p class="m-0 text-center footer-text">
                 Follow us:
                 <a href="https://www.facebook.com/"
                    target="_blank"
-                   class="text-white ms-2"><i class="fab fa-facebook-square"></i></a>
-                <a href="https://x.com/" target="_blank" class="text-white ms-2"><i class="fab fa-twitter-square"></i></a>
+                   class="footer-text ms-2"><i class="fab fa-facebook-square"></i></a>
+                <a href="https://x.com/" target="_blank" class="footer-text ms-2"><i class="fab fa-twitter-square"></i></a>
                 <a href="https://www.instagram.com/"
                    target="_blank"
-                   class="text-white ms-2"><i class="fab fa-instagram-square"></i></a>
+                   class="footer-text ms-2"><i class="fab fa-instagram-square"></i></a>
                 <a href="https://www.youtube.com/"
                    target="_blank"
-                   class="text-white ms-2"><i class="fab fa-youtube-square"></i></a>
+                   class="footer-text ms-2"><i class="fab fa-youtube-square"></i></a>
             </p>
         </footer>
         <!-- Font Awesome -->
