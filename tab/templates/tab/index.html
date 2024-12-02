@@ -21,8 +21,28 @@
                                         <strong class="{% if tab.difficulty == 'Hard' %}red{% elif tab.difficulty == 'Intermediate' %}orange{% else %}green{% endif %}">
                                             {{ tab.difficulty }}
                                         </strong>
-                                    </p>
-                                    
+                                    </p>                                                                                                                                         
+                                    {% comment %} <p class="post-subtitle mt-5"><i class="fa-solid fa-eye"></i> {{ tab.views }}
+
+                                        <strong> | </strong>
+                                           {% if average_rating %}
+                                               <span class="stars">
+                                                   <!-- Full Stars -->
+                                                   {% for _ in star_range %}
+                                                       {% if forloop.counter <= full_stars %}
+                                                           <i class="fa fa-star" style="color: gold;"></i>
+                                                       {% elif forloop.counter == full_stars|add:1 and half_star %}
+                                                           <i class="fa fa-star-half-o" style="color: gold;"></i>
+                                                       {% else %}
+                                                           <i class="fa fa-star-o" style="color: gold;"></i>
+                                                       {% endif %}
+                                                   {% endfor %}
+                                               </span>
+                                               ({{ review_count }})
+                                           {% else %}
+                                               No ratings yet
+                                           {% endif %}
+                                       </p> {% endcomment %}
                                     <hr />
                                     
                                     <p class="text-center text-muted">Uploaded by: 

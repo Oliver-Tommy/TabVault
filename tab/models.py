@@ -31,7 +31,7 @@ class Review(models.Model):
     RATING_CHOICES = [(i, i) for i in range(1, 6)]  # Ratings from 1 to 5 stars
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)  # Link to the user who left the review
-    tab = models.ForeignKey(Tab, on_delete=models.CASCADE)    # Link to the tab being reviewed
+    tab = models.ForeignKey(Tab, on_delete=models.CASCADE, related_name="reviews")    # Link to the tab being reviewed
     rating = models.IntegerField(choices=RATING_CHOICES)        # Star rating
     comment = models.TextField(blank=True)                      # Optional comment
     created_at = models.DateTimeField(auto_now_add=True)        # Timestamp for when the review was submitted

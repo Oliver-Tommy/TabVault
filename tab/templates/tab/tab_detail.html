@@ -13,7 +13,27 @@
                     <p class="post-subtitle">
                         {{ tab.artist }} | Difficulty: {{ tab.difficulty }} | Published: {{ tab.created_at|date:"F j, Y" }}
                     </p>
-                    <p class="post-subtitle mt-5">Views: {{ tab.views }}</p>
+                    <p class="post-subtitle mt-5"><i class="fa-solid fa-eye"></i> Views: {{ tab.views }}
+
+                     <strong> | </strong>
+                        {% if average_rating %}
+                            <span class="stars">
+                                <!-- Full Stars -->
+                                {% for _ in star_range %}
+                                    {% if forloop.counter <= full_stars %}
+                                        <i class="fa fa-star" style="color: gold;"></i>
+                                    {% elif forloop.counter == full_stars|add:1 and half_star %}
+                                        <i class="fa fa-star-half-o" style="color: gold;"></i>
+                                    {% else %}
+                                        <i class="fa fa-star-o" style="color: gold;"></i>
+                                    {% endif %}
+                                {% endfor %}
+                            </span>
+                            ({{ review_count }})
+                        {% else %}
+                            No ratings yet
+                        {% endif %}
+                    </p>
                 </div>
                 <div class="d-none d-md-block col-md-6 masthead-image">
                     <img src="{% static 'images/placeholder.jpg' %}"
@@ -29,10 +49,7 @@
                 <div class="card-body">
                     <!-- Tab content -->
                     <p class="card-text">
-                        <a href="{{ pdf }}"
-                           target="_blank"
-                           id="download-btn"
-                           class="btn">Download Tab</a>
+                        <a href="{{ pdf }}" target="_blank" id="download-btn" class="btn">Download Tab</a>
                         <object class="mt-4" data="{{ pdf }}" width="100%" height="500">
                         </object>
                     </p>
@@ -41,10 +58,13 @@
         </div>
         <!-- Displaying count of reviews -->
         <div class="row">
-            <div class="col-12">
+            <div class="col-6">
                 <strong class="text-secondary">
                     <i class="far fa-star"></i> {{ review_count }} Reviews
                 </strong>
+            </div>
+            <div class="col-6 text-end">
+                <strong class="text-secondary">Average rating {{ average_rating|floatformat:1 }} / 5 <i class="fa fa-star" style="color: gold;"></i> </strong>
             </div>
             <div class="col-12">
                 <hr>
