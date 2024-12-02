@@ -201,3 +201,11 @@ body {
 .footer-text {
     color: #2F2E41;
 }
+
+.gold-star {
+    color: gold;
+}
+
+.review-form {
+    margin-top: 1.3em;
+}

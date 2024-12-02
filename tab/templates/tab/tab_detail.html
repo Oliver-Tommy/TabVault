@@ -21,11 +21,11 @@
                                 <!-- Full Stars -->
                                 {% for _ in star_range %}
                                     {% if forloop.counter <= full_stars %}
-                                        <i class="fa fa-star" style="color: gold;"></i>
+                                        <i class="fa fa-star gold-star"></i>
                                     {% elif forloop.counter == full_stars|add:1 and half_star %}
-                                        <i class="fa fa-star-half-o" style="color: gold;"></i>
+                                        <i class="fa fa-star-half-o gold-star"></i>
                                     {% else %}
-                                        <i class="fa fa-star-o" style="color: gold;"></i>
+                                        <i class="fa fa-star-o gold-star"></i>
                                     {% endif %}
                                 {% endfor %}
                             </span>
@@ -64,7 +64,7 @@
                 </strong>
             </div>
             <div class="col-6 text-end">
-                <strong class="text-secondary">Average rating {{ average_rating|floatformat:1 }} / 5 <i class="fa fa-star" style="color: gold;"></i> </strong>
+                <strong class="text-secondary">Average rating {{ average_rating|floatformat:1 }} / 5 <i class="fa fa-star gold-star"></i> </strong>
             </div>
             <div class="col-12">
                 <hr>
@@ -95,7 +95,7 @@
                     {% if user.is_authenticated %}
                         <h3>Leave a review:</h3>
                         <p>Posting as: {{ user.username }}</p>
-                        <form id="reviewForm" method="post" style="margin-top: 1.3em;">
+                        <form id="reviewForm" class="review-form" method="post">
                             {{ review_form | crispy }}
                             {% csrf_token %}
                             <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit</button>
