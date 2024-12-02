@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
+from django.contrib import messages
 from .models import Tab, Review
 from .forms import ReviewForm
 
@@ -46,6 +47,10 @@ def tab_detail(request, slug):
             review.user = request.user
             review.tab = tab
             review.save()
+            messages.add_message(
+                request, messages.SUCCESS,
+                'Comment submitted'
+            )
 
     review_form = ReviewForm()
 
