@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic
 from django.contrib import messages
-from django.db.models import Avg
+from django.db.models import Avg, Q
 from django.http import HttpResponseRedirect
 from .models import Tab, Review
 from .forms import ReviewForm
@@ -114,3 +114,19 @@ def review_delete(request, slug, review_id):
         messages.add_message(request, messages.ERROR, 'You can only delete your own comments!')
 
     return HttpResponseRedirect(reverse('tab_detail', args=[slug]))
+
+def search_tabs(request):
+    query = request.GET.get('q', '')
+    if query:
+        tabs = Tab.objects.filter(
+            Q(title__icontains=query) | 
+            Q(artist__icontains=query) |
+            Q(genre__icontains=query)
+        )
+    else:
+        tabs = Tab.objects.all()
+    
+    return render(request, 'tab/search_results.html', {
+        'tabs': tabs,
+        'query': query
+    })

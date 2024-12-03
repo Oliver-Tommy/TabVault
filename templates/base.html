@@ -63,6 +63,12 @@
                             </li>
                         {% endif %}
                     </ul>
+                    
+                    <form action="{% url 'search_tabs' %}" method="get" class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Search tabs..." aria-label="Search" name="q" value="{% if request.GET.q %}{{ request.GET.q }}{% endif %}">
+                        <button class="btn search-btn" type="submit">Search</button>
+                    </form>
+        
                     {% if user.is_authenticated %}
                         <p class="text-end m-3">You are logged in as {{ user }}</p>
                     {% else %}
