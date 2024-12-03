@@ -21,44 +21,16 @@
                                         <strong class="{% if tab.difficulty == 'Hard' %}red{% elif tab.difficulty == 'Intermediate' %}orange{% else %}green{% endif %}">
                                             {{ tab.difficulty }}
                                         </strong>
-                                    </p>                                                                                                                                         
-                                    {% comment %} <p class="post-subtitle mt-5"><i class="fa-solid fa-eye"></i> {{ tab.views }}
-
-                                        <strong> | </strong>
-                                           {% if average_rating %}
-                                               <span class="stars">
-                                                   <!-- Full Stars -->
-                                                   {% for _ in star_range %}
-                                                       {% if forloop.counter <= full_stars %}
-                                                           <i class="fa fa-star" style="color: gold;"></i>
-                                                       {% elif forloop.counter == full_stars|add:1 and half_star %}
-                                                           <i class="fa fa-star-half-o" style="color: gold;"></i>
-                                                       {% else %}
-                                                           <i class="fa fa-star-o" style="color: gold;"></i>
-                                                       {% endif %}
-                                                   {% endfor %}
-                                               </span>
-                                               ({{ review_count }})
-                                           {% else %}
-                                               No ratings yet
-                                           {% endif %}
-                                       </p> {% endcomment %}
+                                    </p>
                                     <hr />
                                     
                                     <p class="text-center text-muted">Uploaded by: 
                                         {{ tab.creator.username }}
                                     </p>
-                                    {% comment %} <p class="text-center text-muted">Uploaded by: 
-                                        <a href="{% url 'creator_profile' tab.creator.id %}">
-                                            {{ tab.creator.username }}
-                                        </a> {% endcomment %}
                                     </p>
                                     <p class="text-center text-muted">Published: {{ tab.created_at|date:"F j, Y" }}</p>
                                 </div>
                                 <div class="text-center">
-                                    {% comment %} <a href="{% url 'tab_detail' tab.id %}" class="btn btn-primary btn-sm">
-                                        View Tab
-                                    </a> {% endcomment %}
                             </a>
                         </div>
                     </div>

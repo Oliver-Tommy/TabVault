@@ -1,7 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic
 from django.contrib import messages
 from django.db.models import Avg
+from django.http import HttpResponseRedirect
 from .models import Tab, Review
 from .forms import ReviewForm
 
@@ -76,4 +77,24 @@ def tab_detail(request, slug):
             "half_star": half_star,
         },
     )
-    
+
+def review_edit(request, slug, review_id):
+    """
+    view to edit reviews
+    """
+    if request.method == "POST":
+
+        queryset = Tab.objects.filter()
+        tab = get_object_or_404(queryset, slug=slug)
+        review = get_object_or_404(Review, pk=review_id)
+        review_form = ReviewForm(data=request.POST, instance=review)
+
+        if review_form.is_valid() and review.user == request.user:
+            updated_review = review_form.save(commit=False)
+            updated_review.tab = tab
+            updated_review.save()
+            messages.add_message(request, messages.SUCCESS, 'Review updated successfully!')
+        else:
+            messages.add_message(request, messages.ERROR, 'Error updating review!')
+
+    return HttpResponseRedirect(reverse('tab_detail', args=[slug]))

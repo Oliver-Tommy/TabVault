@@ -11,6 +11,10 @@ body {
     color: #2F2E41; 
 }
 
+.brand:hover {
+    color:#504f64;
+}
+
 .red-o {
     color: #F8B195; 
 }

@@ -13,9 +13,9 @@
                     <p class="post-subtitle">
                         {{ tab.artist }} | Difficulty: {{ tab.difficulty }} | Published: {{ tab.created_at|date:"F j, Y" }}
                     </p>
-                    <p class="post-subtitle mt-5"><i class="fa-solid fa-eye"></i> Views: {{ tab.views }}
-
-                     <strong> | </strong>
+                    <p class="post-subtitle mt-5">
+                        <i class="fa-solid fa-eye"></i> {{ tab.views }}
+                        <strong>|</strong>
                         {% if average_rating %}
                             <span class="stars">
                                 <!-- Full Stars -->
@@ -84,12 +84,17 @@
                                 <strong>{{ review.rating|stars_full }}{{ review.rating|stars_empty }}</strong>
                             </p>
                             <div id="review{{ review.id }}">{{ review.comment|linebreaks }}</div>
+                            {% if user.is_authenticated and review.user == user %}
+                                <button class="btn btn-edit" review_id="{{ review.id }}">
+                                    Edit
+                                </button>
+                            {% endif %}
                         </div>
                         <hr>
                     {% endfor %}
                 </div>
             </div>
-            <!-- Creating New Comments -->
+            <!-- Creating New Reviews -->
             <div class="col-md-4 card mb-4 mt-3">
                 <div class="card-body">
                     {% if user.is_authenticated %}
@@ -108,3 +113,7 @@
         </div>
     </div>
 {% endblock content %}
+
+{% block extras %}
+<script src="{% static 'js/reviews.js' %}"></script>
+{% endblock %}
