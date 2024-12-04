@@ -152,6 +152,24 @@ body {
     font-family: 'Merriweather', serif;
 }
 
+.bm-masthead {
+    margin-top: 5px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 25vh;
+    width: 100%;
+}
+
+.bm-masthead-text {
+    background-color: #B8E1DD; 
+    color: #FFF1E6; 
+    font-family: 'Merriweather', serif;
+    text-align: center;
+}
+
 .masthead-image {
     position: relative;
     overflow: hidden;
@@ -224,4 +242,15 @@ body {
 .search-btn:hover {
     color: #F8B195;
     background-color: #fde5d3;
+}
+
+.btn-bookmark {
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: #d9f3f1;
+    background-color: #E6E6E6;
+}
+
+.btn-bookmark:hover {
+    background-color: #F8B195;
 }
