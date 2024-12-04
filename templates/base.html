@@ -50,6 +50,10 @@
                                    aria-current="page"
                                    href="{% url 'account_logout' %}">Logout</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link {% if request.path == '/bookmarked_tabs/' %}active{% endif %}"
+                                   href="{% url 'bookmarked_tabs' %}">Bookmarked Tabs</a>
+                            </li>
                         {% else %}
                             <li class="nav-item">
                                 <a class="nav-link {% if request.path == signup_url %}active{% endif %}"
@@ -63,12 +67,15 @@
                             </li>
                         {% endif %}
                     </ul>
-                    
                     <form action="{% url 'search_tabs' %}" method="get" class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search tabs..." aria-label="Search" name="q" value="{% if request.GET.q %}{{ request.GET.q }}{% endif %}">
+                        <input class="form-control me-2"
+                               type="search"
+                               placeholder="Search tabs..."
+                               aria-label="Search"
+                               name="q"
+                               value="{% if request.GET.q %}{{ request.GET.q }}{% endif %}">
                         <button class="btn search-btn" type="submit">Search</button>
                     </form>
-        
                     {% if user.is_authenticated %}
                         <p class="text-end m-3">You are logged in as {{ user }}</p>
                     {% else %}
@@ -125,6 +132,5 @@
         </script>
         {% block extras %}
         {% endblock %}
-
     </body>
 </html>

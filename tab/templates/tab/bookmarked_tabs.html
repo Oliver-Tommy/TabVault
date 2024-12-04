@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="container">
+        <div class="bm-masthead">
+            <div class="container">
+                <div class="row g-0">
+                    <div class="col-12 bm-masthead-text">
+                        <h1 class="post-title">Your Bookmarked Tabs</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            {% if bookmarks %}
+                <div class="row">
+                    {% for tab in bookmarks %}
+                        <div class="col-md-4">
+                            <div class="card mb-4 mt-3 left top">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ tab.title }} - {{ tab.artist }}</h5>
+                                    <p class="post-subtitle">
+                                        Published: {{ tab.created_at|date:"F j, Y" }}
+                                    </p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <a href="{% url 'tab_detail' tab.slug %}" class="btn btn-edit">View Tab</a>
+                                        <form method="post" action="{% url 'toggle_bookmark' tab.id %}">
+                                            {% csrf_token %}
+                                            <button type="submit" class="btn btn-bookmark">Remove Bookmark</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="text-center mt-5">
+                    <p class="post-subtitle">You have no bookmarked tabs yet. <a href="{% url 'home' %}" class="btn btn-edit">Browse Tabs</a></p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    
+{% endblock %}

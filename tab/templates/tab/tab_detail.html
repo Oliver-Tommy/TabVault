@@ -34,6 +34,16 @@
                             No ratings yet
                         {% endif %}
                     </p>
+                    {% if user.is_authenticated %}
+                        <form method="post" action="{% url 'toggle_bookmark' tab.id %}">
+                            {% csrf_token %}
+                            {% if user in tab.bookmarks.all %}
+                                <button type="submit" class="btn btn-bookmark post-subtitle">Remove Bookmark</button>
+                            {% else %}
+                                <button type="submit" class="btn btn-edit btn-bookmark post-subtitle">Add Bookmark</button>
+                            {% endif %}
+                        </form>
+                    {% endif %}
                 </div>
                 <div class="d-none d-md-block col-md-6 masthead-image">
                     <img src="{% static 'images/placeholder.jpg' %}"
@@ -85,11 +95,8 @@
                             </p>
                             <div id="review{{ review.id }}">{{ review.comment|linebreaks }}</div>
                             {% if user.is_authenticated and review.user == user %}
-                                <button class="btn btn-delete"
-                                review_id="{{ review.id }}">Delete</button>
-                                <button class="btn btn-edit" review_id="{{ review.id }}">
-                                    Edit
-                                </button>
+                                <button class="btn btn-delete" review_id="{{ review.id }}">Delete</button>
+                                <button class="btn btn-edit" review_id="{{ review.id }}">Edit</button>
                             {% endif %}
                         </div>
                         <hr>
@@ -114,33 +121,33 @@
             </div>
         </div>
     </div>
-
-<!-- Delete confirmation modal -->
-<div class="modal fade" id="deleteModal" tabindex="-1"
-  aria-labelledby="deleteModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title"
-          id="deleteModalLabel">Delete comment?</h5>
-        <button type="button" class="btn-close"
-          data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        Are you sure you want to delete your review?
-        This action cannot be undone.
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary"
-          data-bs-dismiss="modal">Close</button>
-        <a id="deleteConfirm" href="#" class="btn
-          btn-danger">Delete</a>
-      </div>
+    <!-- Delete confirmation modal -->
+    <div class="modal fade"
+         id="deleteModal"
+         tabindex="-1"
+         aria-labelledby="deleteModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel">Delete comment?</h5>
+                    <button type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to delete your review?
+                    This action cannot be undone.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a id="deleteConfirm" href="#" class="btn btn-danger">Delete</a>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
 {% endblock content %}
-
 {% block extras %}
-<script src="{% static 'js/reviews.js' %}"></script>
+    <script src="{% static 'js/reviews.js' %}"></script>
 {% endblock %}

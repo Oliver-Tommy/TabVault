@@ -21,6 +21,8 @@ class Tab(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)  # Auto-filled timestamp
     views = models.IntegerField(default=0)          # Track the number of views
 
+    bookmarks = models.ManyToManyField(User, related_name="bookmarked_tabs", blank=True) #Tracks bookmarked tabs
+
     class Meta:
         ordering = ["-created_at"]
 

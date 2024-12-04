@@ -1,10 +1,12 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic
 from django.contrib import messages
 from django.db.models import Avg, Q
 from django.http import HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 from .models import Tab, Review
 from .forms import ReviewForm
+
 
 # Create your views here.
 
@@ -130,3 +132,20 @@ def search_tabs(request):
         'tabs': tabs,
         'query': query
     })
+
+@login_required
+def toggle_bookmark(request, tab_id):
+    tab = get_object_or_404(Tab, id=tab_id)
+    if request.method == 'POST':
+        if request.user in tab.bookmarks.all():
+            tab.bookmarks.remove(request.user)
+            messages.add_message(request, messages.SUCCESS, 'Tab removed from bookmarks!')
+        else:
+            tab.bookmarks.add(request.user)
+            messages.add_message(request, messages.SUCCESS, 'Tab added to bookmarks!')
+    return redirect('tab_detail', slug=tab.slug)
+
+@login_required
+def bookmarked_tabs(request):
+    bookmarks = request.user.bookmarked_tabs.all()
+    return render(request, 'tab/bookmarked_tabs.html', {'bookmarks': bookmarks})
