@@ -93,6 +93,7 @@ The contrast in style between the 'classic' Merriweather and the more 'modern' R
 - Allow users to bookmark and manage tabs.
 - Provide an intuitive and accessible dashboard.
 - Ensure data security for registered users.
+- Full responsivity.
 
 ### Project Management
 This project was primarily managed through use of the GitHub project board, using issues, with MoSCoW prioritisation. There was additional use of a physical to-do list, for smaller issues.
