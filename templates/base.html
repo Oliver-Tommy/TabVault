@@ -25,7 +25,7 @@
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-light light-bg ">
             <div class="container-fluid">
-                <a class="navbar-brand" href="{% url 'home' %}">
+                <a class="navbar-brand me-4" href="{% url 'home' %}">
                     <span class="brand">Tab<span class="highlight">Vault</span></span>
                 </a>
                 <button class="navbar-toggler"
@@ -40,19 +40,19 @@
                 <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link margin-left {% if request.path == home_url %}active{% endif %}"
+                            <a class="nav-link {% if request.path == home_url %}active{% endif %}"
                                aria-current="page"
                                href="{% url 'home' %}">Home</a>
                         </li>
                         {% if user.is_authenticated %}
                             <li class="nav-item">
+                                <a class="nav-link {% if request.path == '/bookmarked_tabs/' %}active{% endif %}"
+                                   href="{% url 'bookmarked_tabs' %}">Bookmarked Tabs</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link {% if request.path == logout_url %}active{% endif %}"
                                    aria-current="page"
                                    href="{% url 'account_logout' %}">Logout</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link {% if request.path == '/bookmarked_tabs/' %}active{% endif %}"
-                                   href="{% url 'bookmarked_tabs' %}">Bookmarked Tabs</a>
                             </li>
                         {% else %}
                             <li class="nav-item">
@@ -67,7 +67,7 @@
                             </li>
                         {% endif %}
                     </ul>
-                    <form action="{% url 'search_tabs' %}" method="get" class="d-flex">
+                    <form action="{% url 'search_tabs' %}" method="get" class="d-flex" style="width: 25%;">
                         <input class="form-control me-2"
                                type="search"
                                placeholder="Search tabs..."
@@ -76,11 +76,11 @@
                                value="{% if request.GET.q %}{{ request.GET.q }}{% endif %}">
                         <button class="btn search-btn" type="submit">Search</button>
                     </form>
-                    {% if user.is_authenticated %}
-                        <p class="text-end m-3">You are logged in as {{ user }}</p>
+                    {% comment %} {% if user.is_authenticated %}
+                        <p class="text-end m-3 ms-5">You are logged in as {{ user }}</p>
                     {% else %}
-                        <p class="text-end m-3">You are not logged in</p>
-                    {% endif %}
+                        <p class="text-end m-3 ms-5">You are not logged in</p>
+                    {% endif %} {% endcomment %}
                 </div>
             </div>
         </nav>
