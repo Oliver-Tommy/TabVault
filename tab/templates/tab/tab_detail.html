@@ -96,7 +96,7 @@
                             <div id="review{{ review.id }}">{{ review.comment|linebreaks }}</div>
                             {% if user.is_authenticated and review.user == user %}
                                 <button class="btn btn-delete" review_id="{{ review.id }}">Delete</button>
-                                <button class="btn btn-edit" review_id="{{ review.id }}">Edit</button>
+                                <button class="btn btn-signup" review_id="{{ review.id }}">Edit</button>
                             {% endif %}
                         </div>
                         <hr>

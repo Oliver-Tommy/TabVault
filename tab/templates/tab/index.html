@@ -8,10 +8,10 @@
 
         <!-- Tab Listings Column -->
         <div class="col-12 mt-3">
-            <div class="row">
+            <div class="row mt-5">
                 {% for tab in tab_list %}
                 <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm">
+                    <div class="card card-tab mb-4 shadow-sm">
                         <div class="card-body">
                             <a href="{% url 'tab_detail' tab.slug %}" class="mb-4 shadow-sm text-decoration-none text-reset">
                                     <h5 class="card-title text-center">{{ tab.title }}</h5>
