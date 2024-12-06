@@ -88,15 +88,17 @@
                     <!-- Iterate through each review in the reviews queryset -->
                     {% for review in reviews %}
                         <div class="p-2 reviews">
-                            <p class="font-weight-bold">
+                            <p class="font-weight-bold ms-2 mt-2">
                                 {{ review.user.username }}
                                 <span class="font-weight-normal">{{ review.created_at|date:"F j, Y, g:i a" }}</span> rated:
                                 <strong>{{ review.rating|stars_full }}{{ review.rating|stars_empty }}</strong>
                             </p>
-                            <div id="review{{ review.id }}">{{ review.comment|linebreaks }}</div>
+                            <div class="ms-2" id="review{{ review.id }}">{{ review.comment|linebreaks }}</div>
                             {% if user.is_authenticated and review.user == user %}
+                            <div class="d-flex justify-content-end">
                                 <button class="btn btn-delete" review_id="{{ review.id }}">Delete</button>
-                                <button class="btn btn-signup" review_id="{{ review.id }}">Edit</button>
+                                <button class="btn btn-signup me-2" review_id="{{ review.id }}">Edit</button>
+                            </div>
                             {% endif %}
                         </div>
                         <hr>
