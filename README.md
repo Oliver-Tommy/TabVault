@@ -1,131 +1,203 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# TabVault
 
-Welcome Thomas Oliver,
+TabVault is an online platform designed to help creators organize, store, and manage their guitar tabs. The platform allows users to bookmark tabs for easy access and manage them through a secure dashboard. This project is part of the Code Institute's Full-Stack Developer course and focuses on the Django framework, database management, and CRUD functionality.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+## TabVault Homepage
 
-You can safely delete this README.md file or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **June 18, 2024**
+INSERT RESPONSIVITY PIC HERE
 
-## Gitpod Reminders
+Live site: [TabVault](https://tab-vault-b662f7e82794.herokuapp.com/)
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
 
-`python3 -m http.server`
 
-A blue button should appear to click: _Make Public_,
+## Table of Contents
+- [Overview](#overview)
+- [UX - User Experience](#ux-user-experience)
+  - [Colour Scheme](#colour-scheme)
+  - [Font](#font)
+- [Project Planning](#project-planning)
+  - [Strategy Plane](#strategy-plane)
+  - [Site Goals](#site-goals)
+  - [Agile Methodologies - Project Management](#agile-methodologies-project-management)
+  - [MoSCoW Prioritization](#moscow-prioritization)
+  - [Sprints](#sprints)
+  - [User Stories](#user-stories)
+  - [Scope Plane](#scope-plane)
+  - [Structural Plane](#structural-plane)
+  - [Wireframes](#wireframes)
+  - [Database Schema - Entity Relationship Diagram](#database-schema-entity-relationship-diagram)
+- [Security](#security)
+- [Features](#features)
+  - [User View - Registered/Unregistered](#user-view-registeredunregistered)
+  - [Role-Based Dashboard Features](#role-based-dashboard-features)
+  - [Role-Based Navigation](#role-based-navigation)
+  - [Bookmark Feature](#bookmark-feature)
+  - [CRUD Functionality](#crud-functionality)
+- [Technologies & Languages Used](#technologies-languages-used)
+  - [Libraries & Frameworks](#libraries-frameworks)
+  - [Tools & Programs](#tools-programs)
+- [Testing](#testing)
+  - [Validation Testing](#validation-testing)
+  - [User Testing](#user-testing)
+  - [Bugs](#bugs)
+- [Deployment](#deployment)
+  - [Connecting to GitHub](#connecting-to-github)
+  - [Django Project Setup](#django-project-setup)
+  - [Heroku deployment](#heroku-deployment)
+- [Privacy Policy](#privacy-policy)
+- [Credits](#credits)
+  - [Code](#code)
+  - [Media](#media)
+  - [Additional reading/tutorials/books/blogs](#additional-readingtutorialsbooksblogs)
+  - [Acknowledgements](#acknowledgements)
 
-Another blue button should appear to click: _Open Browser_.
+## Overview
 
-To run a backend Python file, type `python3 app.py` if your Python file is named `app.py`, of course.
+TabVault is a platform that allows the tab creator to:
+- Store their tabs.
+- Provide easy access to consumers.
+- Provide consumers with a streamlined experience
 
-A blue button should appear to click: _Make Public_,
+A significant share of content creators in the guitar sphere create their own tabs. Many of these creators resort to third party websites, or have their own in order to share them. This platform is designed to provide a creator with the means to share their guitar tablature. There is a future potential to also put tabs behind a paywall. 
 
-Another blue button should appear to click: _Open Browser_.
+## UX - User Experience
 
-By Default, Gitpod gives you superuser security privileges. Therefore, you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+### Colour Scheme
 
-To log into the Heroku toolbelt CLI:
+<b>Linen (#FFF1E6):</b> Clean and warm backgrounds.
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+<b>Fairy Tale (#FEC8D8):</b> For primary buttons (download link).
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you, so do not share it. If you accidentally make it public, you can create a new one with _Regenerate API Key_.
+<b>Melon (#F8B195):</b> For hover states.
 
-### Connecting your Mongo database
+<b>Platinum (#E6E6E6):</b> Borders & dividers.
 
-- **Connect to Mongo CLI on a IDE**
-- navigate to your MongoDB Clusters Sandbox
-- click **"Connect"** button
-- select **"Connect with the MongoDB shell"**
-- select **"I have the mongo shell installed"**
-- choose **mongosh (2.0 or later)** for : **"Select your mongo shell version"**
-- choose option: **"Run your connection string in your command line"**
-- in the terminal, paste the copied code `mongo "mongodb+srv://<CLUSTER-NAME>.mongodb.net/<DBname>" --apiVersion 1 --username <USERNAME>`
-  - replace all `<angle-bracket>` keys with your own data
-- enter password _(will not echo **\*\*\*\*** on screen)_
+<b>Space cadet (#2F2E41):</b> Text.
 
-------
+<b>Mint green (#B8E1DD):</b> Secondary buttons
 
-## Release History
+![Image of the colours used](readme/images/colour-scheme.jpg)
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+### Font
+<b>Merriweather (for titles):</b> Was chosen for titles as it is highly readable, with a traditional, formal feel. 
 
-**June 18, 2024,** Add Mongo back into template
+<b>Roboto (for body text):</b> Was chosen for the body text, as it is clean and legible. Also, it's popularity and widespread use provides the user with familiarity. 
 
-**June 14, 2024,** Temporarily remove Mongo until the key issue is resolved
+The contrast in style between the 'classic' Merriweather and the more 'modern' Roboto helps draw attention to headings and provides a clear visual separation.
 
-**May 28 2024:** Fix Mongo and Links installs
+![Image of the fonts used](readme/images/fonts.jpg)
 
-**April 26 2024:** Update node version to 16
+## Project Planning
 
-**September 20 2023:** Update Python version to 3.9.17.
+### Site Goals
+- Allow users to bookmark and manage tabs.
+- Provide an intuitive and accessible dashboard.
+- Ensure data security for registered users.
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+### Project Management
+This project was primarily managed through use of the GitHub project board, using issues, with MoSCoW prioritisation. There was additional use of a physical to-do list, for smaller issues.
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+### User Stories
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+Must haves:
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+- As a Creator, I can upload tabs so that I can share my work with users.
+- As a Creator, I can edit or delete my uploaded tabs so that I can keep my content up to date.
+- As a user I can login to access all user privileges.
+- As a Site User, I can view detailed information about a tab so that I can decide whether to download it.
+- As a Site Admin, I can view and manage all content and users so that I can ensure the platform runs smoothly.
+- As a Site User, I can browse and discover tabs so that I can find content relevant to me.
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+Should haves:
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+- As a User, I can leave reviews and ratings for a tab so that I can provide feedback to the creator.
+- As a User, I can bookmark tabs so that I can save them for later.
+- As a User, I can view and edit bookmarks.
+- As a User, I can modify or delete my review so that I can correct or remove my feedback.
+- As a user I can utilise a search bar so that I can find a tab.
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+Could haves: 
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+- As a user I can see the average rating so that I know which tabs are the most highly rated
+- As a Creator, I can create and manage my profile so that users can learn about me and my work.
+- As a Creator, I can view analytics for my tabs so that I can track their performance.
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+### Wireframes
+homepage, dashboard, and bookmark management
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+### Database Schema - Entity Relationship Diagram
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+## Security
+Django's built-in security features handles all data securely:
+- Passwords are encrypted.
+- Forms are CSRF protected.
+- Permission to access data is restricted by role.
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+## Features
 
-------
+### User View - Unregistered
+- When a user is unregistered, they have access to all tabs, with the ability to search, fully navigate and download.
 
-## FAQ about the uptime script
+### Reviews
+- When a user is logged in, they can submit a review for each tab, with a 1-5 star rating and additional text. This 
 
-**Why have you added this script?**
+### Navigation bar
+Logge
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
 
-**How will this affect me?**
+### Search bar
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+### Bookmark Feature
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+### Review aggregation
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+### View count
 
-**So….?**
+## Technologies & Languages Used
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+### Libraries & Frameworks
+- Django - Backend framework.
+- JavaScript - For interactivity and dynamic content.
+- HTML5, CSS3 - Markup and styling languages.
 
-**Can I opt out?**
+### Tools & Programs
+- GitHub - Version control.
+- Heroku - Deployment.
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+## Testing
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+### Validation Testing
 
-**Anything more?**
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+### User Testing
 
----
 
-Happy coding!
+### Bugs
+
+
+## Deployment
+
+### Connecting to GitHub
+
+
+### Django Project Setup
+
+
+### Heroku Deployment
+
+## Credits
+
+### Code
+
+
+### Media
+
+
+### Additional reading/tutorials/books/blogs
+
+
+### Acknowledgements
+
+
