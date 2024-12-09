@@ -16,16 +16,10 @@ Live site: [TabVault](https://tab-vault-b662f7e82794.herokuapp.com/)
   - [Colour Scheme](#colour-scheme)
   - [Font](#font)
 - [Project Planning](#project-planning)
-  - [Strategy Plane](#strategy-plane)
   - [Site Goals](#site-goals)
-  - [Agile Methodologies - Project Management](#agile-methodologies-project-management)
-  - [MoSCoW Prioritization](#moscow-prioritization)
-  - [Sprints](#sprints)
   - [User Stories](#user-stories)
-  - [Scope Plane](#scope-plane)
-  - [Structural Plane](#structural-plane)
   - [Wireframes](#wireframes)
-  - [Database Schema - Entity Relationship Diagram](#database-schema-entity-relationship-diagram)
+  - [Entity Relationship Diagram](#entity-relationship-diagram)
 - [Security](#security)
 - [Features](#features)
   - [User View - Registered/Unregistered](#user-view-registeredunregistered)
@@ -125,10 +119,39 @@ Could haves:
 - As a Creator, I can view analytics for my tabs so that I can track their performance.
 
 ### Wireframes
-homepage, dashboard, and bookmark management
 
-### Database Schema - Entity Relationship Diagram
+Homepage:
+<p float="left">
+  <img src="readme/images/INDEX.png" width="480" />
+  <img src="readme/images/INDEX(PHONE).png" width="170" /> 
+</p>
 
+Tab detail page:
+<p float="left">
+  <img src="readme/images/TAB_DETAIL.png" width="480" />
+  <img src="readme/images/TAB_DETAIL(PHONE).png" width="170" /> 
+</p>
+
+Bookmarks page:
+<p float="left">
+  <img src="readme/images/BOOKMARKS.png" width="480" />
+  <img src="readme/images/BOOKMARKS(PHONE).png" width="170" /> 
+</p>
+
+Search results page:
+<p float="left">
+  <img src="readme/images/SEARCH_RESULTS.png" width="480" />
+  <img src="readme/images/SEARCH_RESULTS(PHONE).png" width="170" /> 
+</p>
+
+
+### Entity Relationship Diagram
+
+![Entity relationship diagram](readme/images/my-project.png)
+
+Dot file generated using <a href ="https://pypi.org/project/pydot/">pydot</a>
+
+Converted to PNG using <a href="https://onlineconvertfree.com/convert-format/dot-to-png/">onlineconvertfree</a>
 
 ## Security
 Django's built-in security features handles all data securely:
@@ -161,7 +184,7 @@ Logge
 ### Libraries & Frameworks
 - Django - Backend framework.
 - JavaScript - For interactivity and dynamic content.
-- HTML5, CSS3 - Markup and styling languages.
+- HTML5, CSS3, Bootstrap - Markup and styling languages, with bootstrap framework for styling.
 
 ### Tools & Programs
 - GitHub - Version control.
