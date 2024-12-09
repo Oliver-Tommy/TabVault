@@ -12,7 +12,7 @@
         <!-- Tab Listings -->
         <div class="col-12">
             {% if tabs %}
-            <ul class="nopop-list">
+            <div>
                 {% for tab in tabs %}
                 <li class="card card-tab mb-4 shadow-sm">
                     <div class="card-body">
@@ -34,7 +34,7 @@
                     </div>
                 </li>
                 {% endfor %}
-            </ul>
+            </div>
             {% else %}
             <div class="col-12 text-center">
                 <h4 class="text-secondary">No tabs found.</h4>
