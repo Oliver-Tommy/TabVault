@@ -171,4 +171,4 @@ GRAPH_MODELS = {
   'group_models': True,
 }
 
-X_FRAME_OPTIONS = ‘ALLOWALL’
+X_FRAME_OPTIONS = 'ALLOW-FROM *'
