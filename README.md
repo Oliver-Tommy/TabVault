@@ -214,6 +214,9 @@ Logge
 
 ### Media
 
+Favicon - <a href="https://www.flaticon.com/free-icons/vault" title="vault icons">Vault icons created by Smashicons - Flaticon</a>
+
+Converted to favicon using: https://favicon.io/favicon-converter/
 
 ### Additional reading/tutorials/books/blogs
 
