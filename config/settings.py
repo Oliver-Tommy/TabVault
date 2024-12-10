@@ -170,3 +170,5 @@ GRAPH_MODELS = {
   'all_applications': True,
   'group_models': True,
 }
+
+X_FRAME_OPTIONS = ‘ALLOWALL’
