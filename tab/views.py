@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Tab, Review
 from .forms import ReviewForm
 
+
 class TabList(generic.ListView):
     """
     Display a paginated list of all available :model:`tab.Tab`.
@@ -173,7 +174,7 @@ def search_tabs(request):
     query = request.GET.get('q', '')
     if query:
         tabs = Tab.objects.filter(
-            Q(title__icontains=query) | 
+            Q(title__icontains=query) |
             Q(artist__icontains=query) |
             Q(genre__icontains=query)
         )
@@ -228,4 +229,3 @@ def bookmarked_tabs(request):
     """
     bookmarks = request.user.bookmarked_tabs.all()
     return render(request, 'tab/bookmarked_tabs.html', {'bookmarks': bookmarks})
-

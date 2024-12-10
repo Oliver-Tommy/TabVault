@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import Tab, Review
 from django_summernote.admin import SummernoteModelAdmin
+from .models import Tab, Review
 
 
 @admin.register(Tab)
