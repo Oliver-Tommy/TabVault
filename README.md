@@ -9,7 +9,6 @@ INSERT RESPONSIVITY PIC HERE
 Live site: [TabVault](https://tab-vault-b662f7e82794.herokuapp.com/)
 
 
-
 ## Table of Contents
 - [Overview](#overview)
 - [UX - User Experience](#ux-user-experience)
@@ -159,21 +158,28 @@ Django's built-in security features handles all data securely:
 
 ### User View - Unregistered
 - When a user is unregistered, they have access to all tabs, with the ability to search, fully navigate and download.
+- However, the user is unable to leave a review, or access the bookmarking page and feature.
 
 ### Reviews
-- When a user is logged in, they can submit a review for each tab, with a 1-5 star rating and additional text. This 
+- When a user is logged in, they can submit a review for each tab, with a 1-5 star rating and additional text. 
+- The star ratings are stored for each tab, and they are aggregated and averaged, then displayed to the user.
 
 ### Navigation bar
-Logge
-
+- When a user isn't logged in, the navigation bar displays options to login and register.
+- When a user is logged in, only the logout option appears.
+- The navbar is fully responsive, with a dropdown appearing on tablet-sized screens and smaller.
+- The users login status is displayed.
 
 ### Search bar
+- The navigation bar has a search bar present, which allows users to search for the tab title, artist, and genre.
 
 ### Bookmark Feature
-
-### Review aggregation
+- When logged in, and viewing a tab_detail page, the user can either add or remove the tab to their 'bookmarks'.
+- The user can access their bookmarked tabs, using the bookmarked tabs button on the navigation bar.
+- In the bookmarked_tabs page, the user's bookmarked tabs are displayed.
 
 ### View count
+- When a user visits a particular tab_detail page, the view count increments by 1.
 
 ## Technologies & Languages Used
 
@@ -190,12 +196,38 @@ Logge
 
 ### Validation Testing
 
+All HTML pages were validated using the <a href="https://validator.w3.org">W3C Markup Validation Service.</a>
+
+index.html:
+
+![Image of the index.html validation](readme/images/index-validation.png)
+
+tab_detail.html:
+
+![Image of the tab_detail.html validation](readme/images/tab_detail-validation.png)
+
+bookmarked_tabs.html:
+
+![Image of the bookmarked_tabs.html validation](readme/images/bookmarks-validation.png)
+
+search_results.html:
+
+![Image of the search_results.html validation](readme/images/search-results-validation.png)
+
+The CSS was validated using the <a href="https://jigsaw.w3.org/css-validator/">W3C CSS Validation Service.</a>
+
+style.css:
+
+![Image of the style.css validation](readme/images/css-validation.png)
 
 ### User Testing
 
 
 ### Bugs
 
+- Having to manually collectstatic for style.css changes to be visible on deployed site (static wasn't being loaded on index.html and sear_results.html pages)
+
+- 
 
 ## Deployment
 
