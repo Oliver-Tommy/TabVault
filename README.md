@@ -29,10 +29,6 @@ Live site: [TabVault](https://tab-vault-b662f7e82794.herokuapp.com/)
   - [User Testing](#user-testing)
   - [Bugs](#bugs)
 - [Deployment](#deployment)
-  - [Connecting to GitHub](#connecting-to-github)
-  - [Django Project Setup](#django-project-setup)
-  - [Heroku deployment](#heroku-deployment)
-- [Privacy Policy](#privacy-policy)
 - [Credits](#credits)
   - [Code](#code)
   - [Media](#media)
@@ -297,7 +293,11 @@ Desktop testing showed no issues.
 
 ![Image of the desktop lighthouse test](readme/images/desktop-lighthouse.png)
 
-Python was validated and up to PEP8 standard.
+Javascript was validated using <a href="https://jshint.com/">JSHint version 2.13.6:</a>
+
+![Image of the Javascript ](readme/images/JSHint.png)
+
+Python was tested for PEP8 compatibilty using the <a href="https://pep8ci.herokuapp.com/">CI Python Linter</a>, and the models.py, test_form, urls.py and views.py were edited for easier readability.
 
 ### User Testing
 
@@ -330,20 +330,26 @@ Python was validated and up to PEP8 standard.
 
 ## Deployment
 
-### Connecting to GitHub
+Throughout the development process, the site was deployed to Heroku from the main repository branch.
 
+Three environment variables were set up in the Heroku application, replacing the locally saved variables within env.py (which is not subject to version control).
+- DATABASE_URL: The string that connects to the database.
+- SECRET_KEY: The app's secret key.
+- CLOUDINARY_URL: The URL for Cloudinary's cloud based image hosting.
 
-### Django Project Setup
+ElephantSQL provides the PostgreSQL database.
 
-
-### Heroku Deployment
+Once the app was setup, the TabVault GitHub repository was connected.
 
 ## Credits
 
 ### Code
 
 
+
 ### Media
+
+Guitar player stock image - <a href="https://pixabay.com/photos/acoustic-guitar-guitarist-1851248/">Link</a>
 
 Favicon - <a href="https://www.flaticon.com/free-icons/vault" title="vault icons">Vault icons created by Smashicons - Flaticon</a>
 
