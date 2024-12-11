@@ -86,6 +86,7 @@ This project was primarily managed through use of the GitHub project board, usin
 
 Must haves:
 
+
 - As a Creator, I can upload tabs so that I can share my work with users.
   - AC1: Given a logged-in creator, they can upload a tab file and metadata (title, artist, genre, difficulty).
   - AC2: Then the file is securely stored.
@@ -115,6 +116,7 @@ Must haves:
 
 Should haves:
 
+
 - As a User, I can leave reviews and ratings for a tab so that I can provide feedback to the creator.
   - AC1: Given a logged-in user, they can submit a star rating (1–5).
   - AC2: Given a logged-in user, they can add a text comment.
@@ -138,6 +140,7 @@ Should haves:
   - AC3: If there are no relevant results, the user is given a response
 
 Could haves: 
+
 
 - As a user I can see the average rating so that I know which tabs are the most highly rated.
   - AC1: Reviews average star rating is shown.
@@ -330,6 +333,12 @@ Python was tested for PEP8 compatibilty using the <a href="https://pep8ci.heroku
 
 Throughout the development process, the site was deployed to Heroku from the main repository branch.
 
+The requirements.txt file was kept up to date throughout development, so that all Python modules were configured in Heroku.
+
+A Procfile was added to configure the application as a Gunicorn web app.
+
+In settings.py, Heroku and localhost were added to the ALLOWED_HOSTS list.
+
 Three environment variables were set up in the Heroku application, replacing the locally saved variables within env.py (which is not subject to version control).
 - DATABASE_URL: The string that connects to the database.
 - SECRET_KEY: The app's secret key.
@@ -343,6 +352,11 @@ Once the app was setup, the TabVault GitHub repository was connected.
 
 ### Code
 
+- Django documentation
+
+- Stack overflow
+
+- 
 
 
 ### Media
