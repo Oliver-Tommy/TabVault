@@ -92,25 +92,75 @@ This project was primarily managed through use of the GitHub project board, usin
 Must haves:
 
 - As a Creator, I can upload tabs so that I can share my work with users.
+  - AC1: Given a logged-in creator, they can upload a tab file and metadata (title, artist, genre, difficulty).
+  - AC2: Then the file is securely stored.
+
 - As a Creator, I can edit or delete my uploaded tabs so that I can keep my content up to date.
+  - AC1: Given a logged-in creator, they can edit metadata (e.g., title, genre, artist) of their uploaded tabs.
+  - AC2: Given a logged-in creator, they can delete a tab they uploaded.
+
 - As a user I can login to access all user privileges.
+  - AC1: When not logged in, register and login buttons present
+  - AC2: When logged in, sign out button present
+  - AC3: After login/register, redirect to home page
+
 - As a Site User, I can view detailed information about a tab so that I can decide whether to download it.
+  - AC1: Given a tab title is clicked, the user is directed to a detailed view showing its metadata (title, artist, genre, difficulty).
+  - AC2: When the tab is viewed, the view count increments.
+  - AC3: Then users see reviews and ratings submitted by others.
+
 - As a Site Admin, I can view and manage all content and users so that I can ensure the platform runs smoothly.
+  - AC1: Admins can view all uploaded tabs, reviews, and user profiles.
+  - AC2: Admins can deactivate or delete inappropriate tabs, reviews, or accounts.
+
 - As a Site User, I can browse and discover tabs so that I can find content relevant to me.
+  - AC1: When visiting the homepage, users see tabs.
+  - AC2: Then users can search for tabs by genre, difficulty, or artist.
+  - AC3: When filtering tabs, the results update dynamically.
 
 Should haves:
 
 - As a User, I can leave reviews and ratings for a tab so that I can provide feedback to the creator.
+  - AC1: Given a logged-in user, they can submit a star rating (1–5).
+  - AC2: Given a logged-in user, they can add a text comment.
+  - AC3: Then the review is associated with the user and the tab.
+
 - As a User, I can bookmark tabs so that I can save them for later.
+  - AC1: Given a logged-in user, they can click a "bookmark" button to save a tab.
+  - AC2: Then the user can view a list of their bookmarked tabs in their profile/dashboard.
+  - AC3: When a bookmarked tab is deleted by the creator, it is automatically removed from the user's list.
+  
 - As a User, I can view and edit bookmarks.
+
 - As a User, I can modify or delete my review so that I can correct or remove my feedback.
+  - AC1: Given a logged-in user, they can edit the text and rating of their submitted review.
+  - AC2: Given a logged-in user, they can delete their review.
+  - AC3: Then the review updates are reflected immediately.
+
 - As a user I can utilise a search bar so that I can find a tab.
+  - AC1: Search bar can be found easily
+  - AC2: Upon searching a title, artist or genre, a list of relevant tabs comes up
+  - AC3: If there are no relevant results, the user is given a response
 
 Could haves: 
 
-- As a user I can see the average rating so that I know which tabs are the most highly rated
+- As a user I can see the average rating so that I know which tabs are the most highly rated.
+  - AC1: Reviews average star rating is shown.
+  - AC2: You can sort by average rating
+  - AC3: Average ratings update as reviews are added or deleted
+
 - As a Creator, I can create and manage my profile so that users can learn about me and my work.
+  - AC1: Given a logged-in user, they can add or update their bio.
+  - AC2: Given a logged-in user, they can upload or change a profile picture.
+  - AC3: Then their profile displays their uploaded tabs.
+
 - As a Creator, I can view analytics for my tabs so that I can track their performance.
+  - AC1: When visiting the creator dashboard, creators see views and average ratings for each tab.
+  - AC2: Then creators can view aggregated metrics (e.g., total uploads, total reviews).
+
+These user stories were then categorised using MoSCoW prioritisation.
+
+![GitHub Project board](readme/images/Project-board.png)
 
 ### Wireframes
 
@@ -247,12 +297,30 @@ Desktop testing showed no issues.
 
 ![Image of the desktop lighthouse test](readme/images/desktop-lighthouse.png)
 
+Python was validated and up to PEP8 standard.
+
 ### User Testing
 
 - The site was tested by multiple users.
 - Responsivity was tested for, on varying everyday devices.
 - Each user navigated the website, before and after creating an account.
 - All features were found to be working as expected.
+
+<strong>User Story Testing:</strong>
+
+| Test                      | Result  |
+| ------------------------- | ------- |
+| Manage tabs               | Success |
+| Upload tabs               | Success |
+| Leave reviews and ratings | Success |
+| Login                     | Success |
+| View tab details          | Success |
+| Edit reviews              | Success |
+| Search bar functions      | Success |
+| Manage content            | Success |
+| Bookmark tabs             | Success |
+| View analytics            | Success |
+| Browse Tabs               | Success |
 
 ### Bugs
 
