@@ -4,7 +4,7 @@ TabVault is an online platform designed to help creators organize, store, and ma
 
 ## TabVault Homepage
 
-INSERT RESPONSIVITY PIC HERE
+![Image of the sites responsivity on varying devices](readme/images/responsivity.png)
 
 Live site: [TabVault](https://tab-vault-b662f7e82794.herokuapp.com/)
 
@@ -27,6 +27,7 @@ Live site: [TabVault](https://tab-vault-b662f7e82794.herokuapp.com/)
   - [Tools & Programs](#tools-programs)
 - [Testing](#testing)
   - [Validation Testing](#validation-testing)
+  - [Lighthouse Testing](#lighthouse-testing)
   - [User Testing](#user-testing)
   - [Bugs](#bugs)
 - [Deployment](#deployment)
@@ -219,6 +220,18 @@ The CSS was validated using the <a href="https://jigsaw.w3.org/css-validator/">W
 style.css:
 
 ![Image of the style.css validation](readme/images/css-validation.png)
+
+### Lighthouse testing
+
+Mobile testing shows high levels of accessibility, strong use of best practise and good SEO. Performance is slightly under it's ideal level, however, this is due to render-blocking resources (shown below)
+
+![Image of the mobile lighthouse test](readme/images/mobile-lighthouse.png)
+
+![Image of the mobile lighthouse performace warnings](readme/images/mobile-lighthouse-performance.png)
+
+Desktop testing showed no issues.
+
+![Image of the desktop lighthouse test](readme/images/desktop-lighthouse.png)
 
 ### User Testing
 
