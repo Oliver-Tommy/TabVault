@@ -32,7 +32,6 @@ Live site: [TabVault](https://tab-vault-b662f7e82794.herokuapp.com/)
 - [Credits](#credits)
   - [Code](#code)
   - [Media](#media)
-  - [Additional reading/tutorials/books/blogs](#additional-readingtutorialsbooksblogs)
   - [Acknowledgements](#acknowledgements)
 
 ## Overview
@@ -297,7 +296,7 @@ Javascript was validated using <a href="https://jshint.com/">JSHint version 2.13
 
 ![Image of the Javascript ](readme/images/JSHint.png)
 
-Python was tested for PEP8 compatibilty using the <a href="https://pep8ci.herokuapp.com/">CI Python Linter</a>, and the models.py, test_form, urls.py and views.py were edited for easier readability.
+Python was tested for PEP8 compatibilty using the <a href="https://pep8ci.herokuapp.com/">CI Python Linter</a>, and the python files: models.py, test_form.py, urls.py and views.py were edited for easier readability.
 
 ### User Testing
 
@@ -326,7 +325,6 @@ Python was tested for PEP8 compatibilty using the <a href="https://pep8ci.heroku
 
 - Having to manually collectstatic for style.css changes to be visible on deployed site (static wasn't being loaded on index.html and sear_results.html pages)
 
-- 
 
 ## Deployment
 
@@ -354,8 +352,6 @@ Guitar player stock image - <a href="https://pixabay.com/photos/acoustic-guitar-
 Favicon - <a href="https://www.flaticon.com/free-icons/vault" title="vault icons">Vault icons created by Smashicons - Flaticon</a>
 
 Converted to favicon using: https://favicon.io/favicon-converter/
-
-### Additional reading/tutorials/books/blogs
 
 
 ### Acknowledgements
