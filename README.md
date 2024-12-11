@@ -21,10 +21,8 @@ Live site: [TabVault](https://tab-vault-b662f7e82794.herokuapp.com/)
   - [Entity Relationship Diagram](#entity-relationship-diagram)
 - [Security](#security)
 - [Features](#features)
-  - [User View - Registered/Unregistered](#user-view-registeredunregistered)
-- [Technologies & Languages Used](#technologies-languages-used)
-  - [Libraries & Frameworks](#libraries-frameworks)
-  - [Tools & Programs](#tools-programs)
+- [Future Features](#future-features)
+- [Technologies Used](#technologies-used)
 - [Testing](#testing)
   - [Validation Testing](#validation-testing)
   - [Lighthouse Testing](#lighthouse-testing)
@@ -182,12 +180,28 @@ Django's built-in security features handles all data securely:
 ### View count
 - When a user visits a particular tab_detail page, the view count increments by 1.
 
-## Technologies & Languages Used
+## Future Features
+
+### Many creators
+- Currently the site is for the use of only one creator, as many such websites are.
+- In the future, many users, apon admin validation, will be able to have a 'creator' account, with the ability to create profiles and add tabs with full CRUD functionality.
+
+### Monetization
+- In order to view a tab, the user has to pay to gain access priveleges.
+- Creators can set their own prices.
+
+## Technologies Used
+### Languages
+- HTML5, CSS3 - Markup and styling languages.
+- Javascript - For interactivity and dynamic content.
+- Python - For backend functionality.
+- PostgreSQL - Database management.
 
 ### Libraries & Frameworks
+- Bootstrap - For frontend styling.
 - Django - Backend framework.
-- JavaScript - For interactivity and dynamic content.
-- HTML5, CSS3, Bootstrap - Markup and styling languages, with bootstrap framework for styling.
+- Cloudinary - For storing cloud-based files.
+- Whitenoise - To serve static files.
 
 ### Tools & Programs
 - GitHub - Version control.
@@ -235,6 +249,10 @@ Desktop testing showed no issues.
 
 ### User Testing
 
+- The site was tested by multiple users.
+- Responsivity was tested for, on varying everyday devices.
+- Each user navigated the website, before and after creating an account.
+- All features were found to be working as expected.
 
 ### Bugs
 
