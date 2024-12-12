@@ -1,4 +1,4 @@
-from django.contrib import admin
+from django.contrib import admin, messages
 from django_summernote.admin import SummernoteModelAdmin
 from .models import Tab, Review
 
@@ -12,7 +12,11 @@ class TabAdmin(SummernoteModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
     readonly_fields = ('views',)
 
+    def save_model(self, request, obj, form, change):
+        if not obj.file:
+            messages.error(request, "A PDF file is required")
+            return
+        super().save_model(request, obj, form, change)
 
-# Register your models here.
 
 admin.site.register(Review)

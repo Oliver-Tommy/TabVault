@@ -17,7 +17,7 @@ class Tab(models.Model):
     artist = models.CharField(max_length=100)
     genre = models.CharField(max_length=50)
     difficulty = models.CharField(max_length=50, choices=DIFFICULTY_CHOICES)
-    file = CloudinaryField('pdf', default='placeholder')
+    file = CloudinaryField('pdf', null=False, blank=False)
     creator = models.ForeignKey(User, on_delete=models.CASCADE,
                                 related_name='tabs')
     created_at = models.DateTimeField(auto_now_add=True)
@@ -31,6 +31,14 @@ class Tab(models.Model):
 
     def __str__(self):
         return f"{self.title} by {self.artist}"
+    
+    def clean(self):
+        super().clean()
+        if not self.file:
+            raise ValidationError({'file': 'A PDF file is required'})
+        
+        if not str(self.file).lower().endswith('.pdf'):
+            raise ValidationError({'file': 'File must be a PDF'})
 
 
 class Review(models.Model):

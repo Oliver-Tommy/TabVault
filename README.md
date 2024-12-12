@@ -497,14 +497,3 @@ Converted to favicon using: https://favicon.io/favicon-converter/
 I would like to thank my facilitator, Alex, for his guidance and support throughout the project.
 
 I would also like to thank my subject matter expert, Mark, for his great teaching and support.
-
-## Installation
-
-### Prerequisites
-- Python 3.8+
-- PostgreSQL 12+
-- Node.js 14+ (for frontend assets)
-- pip
-
-### Local Development Setup
-1. Clone the repository
