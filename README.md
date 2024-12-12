@@ -36,12 +36,13 @@ Live site: [TabVault](https://tab-vault-b662f7e82794.herokuapp.com/)
 
 ## Overview
 
-TabVault is a platform that allows the tab creator to:
-- Store their tabs.
-- Provide easy access to consumers.
-- Provide consumers with a streamlined experience
+TabVault is a comprehensive platform designed for guitar tab creators and enthusiasts that enables:
+- Storage and organization of guitar tabs
+- Sharing and distribution to fans and students
+- A streamlined, user-friendly experience for both creators and consumers
+- Professional presentation of the content
 
-A significant share of content creators in the guitar sphere create their own tabs. Many of these creators resort to third party websites, or have their own in order to share them. This platform is designed to provide a creator with the means to share their guitar tablature. There is a future potential to also put tabs behind a paywall. 
+Guitar content creators often struggle with effectively sharing their tablature, either relying on third-party websites with limited features or building costly custom solutions. TabVault bridges this gap by providing a dedicated platform where creators can easily upload, manage and distribute their guitar tabs to their audience. The platform is built with the potential forfuture scalability in mind, with possibilities for a creator-based system, with paid access to tabs.
 
 ## UX - User Experience
 
@@ -74,12 +75,24 @@ The contrast in style between the 'classic' Merriweather and the more 'modern' R
 
 ### Site Goals
 - Allow users to bookmark and manage tabs.
-- Provide an intuitive and accessible dashboard.
-- Ensure data security for registered users.
-- Full responsivity.
+- Provide an accessible dashboard that displays relevant information clearly.
+- Full responsivity across all devices and screen sizes.
+- Enable easy tab uploads and downloads.
+- Implement a review and rating system.
+- Maintain high performance and fast load times.
+- Provide comprehensive search capabilities.
+- Enable easy content management for creators.
 
 ### Project Management
-This project was primarily managed through use of the GitHub project board, using issues, with MoSCoW prioritisation. There was additional use of a physical to-do list, for smaller issues.
+This project was primarily managed through GitHub's project board functionality. Issues were created for all major features and tasks, each categorized using MoSCoW prioritization (Must have, Should have, Could have, Won't have) to ensure proper resource allocation and timely delivery.
+
+The GitHub project board was organized into the following columns:
+- To Do: New issues and tasks to be worked on
+- In Progress: Currently being developed
+- Done: Completed and verified features
+
+For day-to-day task management and smaller items that didn't need issues, I maintained a physical to-do list to track minor bug fixes, small UI improvements, and other quick tasks.
+
 
 
 ### User Stories
@@ -156,7 +169,8 @@ Could haves:
   - AC1: When visiting the creator dashboard, creators see views and average ratings for each tab.
   - AC2: Then creators can view aggregated metrics (e.g., total uploads, total reviews).
 
-These user stories were then categorised using MoSCoW prioritisation.
+
+Image of the project board after sprint completion:
 
 ![GitHub Project board](readme/images/Project-board.png)
 
@@ -196,10 +210,23 @@ Dot file generated using <a href ="https://pypi.org/project/pydot/">pydot</a>
 Converted to PNG using <a href="https://onlineconvertfree.com/convert-format/dot-to-png/">onlineconvertfree</a>
 
 ## Security
-Django's built-in security features handles all data securely:
-- Passwords are encrypted.
-- Forms are CSRF protected.
-- Permission to access data is restricted by role.
+
+Django's built-in security features handle all data securely:
+
+- Passwords are encrypted using Django's default PBKDF2 algorithm with SHA256 hash
+- All forms are protected against Cross-Site Request Forgery (CSRF) attacks using Django's middleware
+- User authentication and authorization restricts access based on roles:
+  - Only authenticated users can access bookmarking features
+  - Only authenticated users can submit reviews
+  - Admin users have full access to the Django admin interface
+- Database queries are protected against SQL injection through Django's ORM
+- Cross-Site Scripting (XSS) protection is enabled by default
+- Clickjacking protection via X-Frame-Options middleware
+- Debug mode is disabled in production
+- Secure password validation enforces:
+  - Minimum length requirements
+  - Common password checking
+  - Numeric character requirements
 
 ## Features
 
@@ -238,22 +265,47 @@ Django's built-in security features handles all data securely:
 - In order to view a tab, the user has to pay to gain access priveleges.
 - Creators can set their own prices.
 
+### Social Features
+- Add ability for users to follow their favorite creators
+- Implement a commenting system on tabs
+- Allow users to share tabs on social media platforms
+- Create user profile pages with activity feeds
+
+### Enhanced Tab Features
+- Add video tutorials linked to specific tabs
+- Implement an interactive tab player
+- Add difficulty ratings and estimated completion time
+- Include practice tips and techniques for each tab
+
+### Advanced Analytics
+- Provide detailed analytics for creators including user demographics
+- Track user engagement metrics
+- Generate revenue reports for monetized content
+- Show trending tabs and popular genres
+
+### Mobile App
+- Develop native mobile applications for iOS and Android
+- Enable offline access to downloaded tabs
+- Add push notifications for new tabs from followed creators
+- Implement mobile-specific features like metronome and tuner
+
 ## Technologies Used
+
 ### Languages
-- HTML5, CSS3 - Markup and styling languages.
-- Javascript - For interactivity and dynamic content.
-- Python - For backend functionality.
-- PostgreSQL - Database management.
+- HTML5 & CSS3 - Core web technologies for structure and styling
+- JavaScript - Client-side programming for interactive features
+- Python - Server-side programming language
+- PostgreSQL - Relational database system
 
 ### Libraries & Frameworks
-- Bootstrap - For frontend styling.
-- Django - Backend framework.
-- Cloudinary - For storing cloud-based files.
-- Whitenoise - To serve static files.
+- Bootstrap 5 - Frontend CSS framework
+- Django 4 - Python web framework
+- Cloudinary - Cloud storage service for media files
+- WhiteNoise - Static file serving for Python web apps
 
-### Tools & Programs
-- GitHub - Version control.
-- Heroku - Deployment.
+### Development & Deployment
+- Git & GitHub - Version control and code hosting
+- Heroku - Cloud platform for deployment
 
 ## Testing
 
@@ -283,23 +335,31 @@ style.css:
 
 ![Image of the style.css validation](readme/images/css-validation.png)
 
-### Lighthouse testing
-
-Mobile testing shows high levels of accessibility, strong use of best practise and good SEO. Performance is slightly under it's ideal level, however, this is due to render-blocking resources (shown below)
-
-![Image of the mobile lighthouse test](readme/images/mobile-lighthouse.png)
-
-![Image of the mobile lighthouse performace warnings](readme/images/mobile-lighthouse-performance.png)
-
-Desktop testing showed no issues.
-
-![Image of the desktop lighthouse test](readme/images/desktop-lighthouse.png)
-
 Javascript was validated using <a href="https://jshint.com/">JSHint version 2.13.6:</a>
 
 ![Image of the Javascript ](readme/images/JSHint.png)
 
 Python was tested for PEP8 compatibilty using the <a href="https://pep8ci.herokuapp.com/">CI Python Linter</a>, and the python files: models.py, test_form.py, urls.py and views.py were edited for easier readability.
+
+
+### Lighthouse testing
+
+Mobile testing demonstrated strong results across most metrics:
+- High accessibility score
+- Strong best practices implementation 
+- Good SEO optimization
+- Slightly reduced performance due to render-blocking resources
+
+![Image of the mobile lighthouse test](readme/images/mobile-lighthouse.png)
+
+The performance impact was primarily due to render-blocking resources:
+
+![Image of the mobile lighthouse performace warnings](readme/images/mobile-lighthouse-performance.png)
+
+Desktop testing showed optimal performance across all metrics:
+
+![Image of the desktop lighthouse test](readme/images/desktop-lighthouse.png)
+
 
 ### User Testing
 
@@ -403,15 +463,24 @@ Throughout the development process, the site was deployed to Heroku from the mai
 
 For utilising Django:
 - <a href="https://docs.djangoproject.com/">Django documentation</a>
+- <a href="https://www.djangoproject.com/start/">Django Getting Started Guide</a>
+- <a href="https://docs.djangoproject.com/en/4.2/topics/forms/">Django Forms documentation</a>
 
 For debugging and finding solutions:
 - <a href="https://stackoverflow.com/">Stack overflow</a>
+- <a href="https://github.com/">GitHub Issues & Discussions</a>
 
 For utilising Bootstrap:
 - <a href="https://getbootstrap.com/docs/5.3/getting-started/introduction/">Bootstrap documentation</a>
+- <a href="https://getbootstrap.com/docs/5.3/examples/">Bootstrap Examples</a>
+- <a href="https://getbootstrap.com/docs/5.3/components/">Bootstrap Components</a>
 
 For debugging:
 - <a href="https://chatgpt.com/">ChatGPT</a>
+- <a href="https://developer.mozilla.org/en-US/">MDN Web Docs</a>
+
+For deployment:
+- <a href="https://devcenter.heroku.com/categories/python-support">Heroku Python Support</a>
 
 
 ### Media
@@ -425,4 +494,17 @@ Converted to favicon using: https://favicon.io/favicon-converter/
 
 ### Acknowledgements
 
+I would like to thank my facilitator, Alex, for his guidance and support throughout the project.
 
+I would also like to thank my subject matter expert, Mark, for his great teaching and support.
+
+## Installation
+
+### Prerequisites
+- Python 3.8+
+- PostgreSQL 12+
+- Node.js 14+ (for frontend assets)
+- pip
+
+### Local Development Setup
+1. Clone the repository
