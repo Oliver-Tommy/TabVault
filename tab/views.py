@@ -4,7 +4,6 @@ from django.contrib import messages
 from django.db.models import Avg, Q
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
-from django.db import IntegrityError
 from .models import Tab, Review
 from .forms import ReviewForm
 
@@ -67,27 +66,12 @@ def tab_detail(request, slug):
     if request.method == "POST":
         review_form = ReviewForm(data=request.POST)
         if review_form.is_valid():
-            try:
-                # Check if user already has a review for this tab
-                existing_review = Review.objects.filter(
-                    user=request.user, tab=tab
-                ).exists()
-                
-                if existing_review:
-                    messages.error(
-                        request, "You have already reviewed this tab!"
-                    )
-                else:
-                    review = review_form.save(commit=False)
-                    review.user = request.user
-                    review.tab = tab
-                    review.save()
-                    messages.success(request, "Review submitted successfully!")
-                    
-            except IntegrityError:
-                messages.error(
-                    request, "You have already reviewed this tab!"
-                )
+            review = review_form.save(commit=False)
+            review.user = request.user
+            review.tab = tab
+            review.save()
+            messages.add_message(request, messages.SUCCESS,
+                                 "Comment submitted")
 
     review_form = ReviewForm()
     tab.views += 1

@@ -60,11 +60,6 @@ class Review(models.Model):
 
     class Meta:
         ordering = ["created_at"]
-        unique_together = ['user', 'tab']
 
     def __str__(self):
         return f"Review by {self.user.username} for {self.tab.title}"
-
-    def clean(self):
-        if Review.objects.filter(user=self.user, tab=self.tab).exists() and not self.pk:
-            raise ValidationError("You have already reviewed this tab.")
