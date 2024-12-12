@@ -303,60 +303,115 @@ Python was tested for PEP8 compatibilty using the <a href="https://pep8ci.heroku
 
 ### User Testing
 
-- The site was tested by multiple users.
-- Responsivity was tested for, on varying everyday devices.
-- Each user navigated the website, before and after creating an account.
-- All features were found to be working as expected.
+The site underwent comprehensive testing by multiple users across different demographics:
 
-<strong>User Story Testing:</strong>
+Devices tested on included:
+- iPhone 11, 13, 13 Pro Max, 15
+- iPad Pro
+- Various desktop monitors (1080p and 4K)
 
-| Test                      | Result  |
-| ------------------------- | ------- |
-| Manage tabs               | Success |
-| Upload tabs               | Success |
-| Leave reviews and ratings | Success |
-| Login                     | Success |
-| View tab details          | Success |
-| Edit reviews              | Success |
-| Search bar functions      | Success |
-| Manage content            | Success |
-| Bookmark tabs             | Success |
-| View analytics            | Success |
-| Browse Tabs               | Success |
+Each user performed the following testing protocol:
+1. Browsed the site as an anonymous user
+2. Created an account
+3. Logged in and tested authenticated features
+4. Tested responsive design by resizing browser window
+5. Attempted edge cases like invalid inputs
+6. Provided feedback on user experience
+
+All core features were thoroughly tested and verified working:
+- Account creation and authentication
+- Tab uploading and management
+- Review system
+- Bookmark functionality
+- Search capabilities
+- Responsive design elements
+
+<strong>User Story Testing Results:</strong>
+
+| Test Case                 | Expected Behavior | Actual Result | Status  |
+| ------------------------- | ---------------- | ------------- | ------- |
+| Manage tabs               | Users can create, edit, and delete tabs | Functions as expected | Success |
+| Upload tabs              | Users can upload new tabs with metadata | Upload works correctly | Success |
+| Leave reviews and ratings | Users can post reviews and star ratings | Rating system works properly | Success |
+| Login                    | Users can authenticate securely | Login process smooth | Success |
+| View tab details         | Users can see full tab information | All details display correctly | Success |
+| Edit reviews             | Users can modify their existing reviews | Edit function works | Success |
+| Search bar functions     | Users can search tabs by various criteria | Search returns accurate results | Success |
+| Manage content           | Admins can moderate all site content | Admin controls working | Success |
+| Bookmark tabs            | Users can save tabs for later | Bookmark system functional | Success |
+| View analytics           | Users can see tab statistics | Analytics display correctly | Success |
+| Browse Tabs              | Users can view and filter tab listings | Browse feature works smoothly | Success |
 
 ### Bugs
+During development, several bugs were encountered and resolved:
 
-- Having to manually collectstatic for style.css changes to be visible on deployed site (static wasn't being loaded on index.html and sear_results.html pages)
+1. Static Files Loading Issue:
+   - Problem: Static files (particularly style.css) weren't loading on index.html and search_results.html pages in the deployed site
+   - Solution: Added {% load static %} to the affected templates and verified static file configuration in settings.py
+   - Temporary workaround required manual collectstatic commands until fully resolved
+
+2. Search Functionality:
+   - Problem: Search results were not displaying correctly when using special characters
+   - Solution: Implemented proper URL encoding and input sanitization
+
+3. Mobile Navigation:
+   - Problem: Hamburger dropdown menu wasn't responding on some mobile devices
+   - Solution: Changed the bootstrap classes to ensure the dropdown menu was working
+
+All identified bugs were documented, tracked, and resolved to ensure optimal site functionality.
 
 
 ## Deployment
 
-Throughout the development process, the site was deployed to Heroku from the main repository branch.
+Throughout the development process, the site was deployed to Heroku from the main repository branch. The following steps were taken to ensure successful deployment:
 
-The requirements.txt file was kept up to date throughout development, so that all Python modules were configured in Heroku.
+1. Environment Setup:
+   - Created a requirements.txt file using `pip freeze > requirements.txt` to track all Python dependencies
+   - Added a Procfile containing `web: gunicorn tabvault.wsgi` to configure the Gunicorn web server
+   - Updated settings.py to include both Heroku app URL and localhost in ALLOWED_HOSTS
 
-A Procfile was added to configure the application as a Gunicorn web app.
+2. Database Configuration:
+   - Set up a PostgreSQL database instance on ElephantSQL
+   - Connected the database to the application using the DATABASE_URL environment variable
+   - Ran migrations to set up the database schema
 
-In settings.py, Heroku and localhost were added to the ALLOWED_HOSTS list.
+3. Environment Variables:
+   The following config vars were set in Heroku:
+   - DATABASE_URL: PostgreSQL database connection string
+   - SECRET_KEY: Django secret key for security
+   - CLOUDINARY_URL: Connection string for Cloudinary media storage
+   These replaced the local variables from env.py which was excluded from version control
 
-Three environment variables were set up in the Heroku application, replacing the locally saved variables within env.py (which is not subject to version control).
-- DATABASE_URL: The string that connects to the database.
-- SECRET_KEY: The app's secret key.
-- CLOUDINARY_URL: The URL for Cloudinary's cloud based image hosting.
+4. Static Files:
+   - Configured Cloudinary for static and media file hosting
+   - Ran collectstatic to gather all static files
 
-ElephantSQL provides the PostgreSQL database.
+5. Deployment Steps:
+   - Connected GitHub repository to Heroku application
+   - Verified build logs and ensured successful deployment
+   - Confirmed application was running correctly on Heroku URL
 
-Once the app was setup, the TabVault GitHub repository was connected.
+6. Post-Deployment:
+   - Tested all functionality on live site
+   - Verified database connections and migrations
+   - Confirmed static files were being served correctly
+   - Checked all environment variables were working as expected
 
 ## Credits
 
 ### Code
 
-- Django documentation
+For utilising Django:
+- <a href="https://docs.djangoproject.com/">Django documentation</a>
 
-- Stack overflow
+For debugging and finding solutions:
+- <a href="https://stackoverflow.com/">Stack overflow</a>
 
-- 
+For utilising Bootstrap:
+- <a href="https://getbootstrap.com/docs/5.3/getting-started/introduction/">Bootstrap documentation</a>
+
+For debugging:
+- <a href="https://chatgpt.com/">ChatGPT</a>
 
 
 ### Media
