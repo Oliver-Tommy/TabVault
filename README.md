@@ -418,6 +418,10 @@ During development, several bugs were encountered and resolved:
    - Problem: Hamburger dropdown menu wasn't responding on some mobile devices
    - Solution: Changed the bootstrap classes to ensure the dropdown menu was working
 
+4. PDF file validation:
+   - Problem: PDF files were not being validated
+   - Solution: Added a validation function to the model
+
 All identified bugs were documented, tracked, and resolved to ensure optimal site functionality.
 
 

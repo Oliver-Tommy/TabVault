@@ -6,6 +6,7 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from .models import Tab, Review
 from .forms import ReviewForm
+from django.db import IntegrityError
 
 
 class TabList(generic.ListView):
@@ -238,3 +239,20 @@ def bookmarked_tabs(request):
     bookmarks = request.user.bookmarked_tabs.all()
     return render(request, "tab/bookmarked_tabs.html",
                   {"bookmarks": bookmarks})
+
+
+def add_review(request, tab_id):
+    if request.method == "POST":
+        try:
+            # Your existing review creation code
+            review = Review.objects.create(
+                user=request.user,
+                tab_id=tab_id,
+                rating=request.POST.get('rating'),
+                comment=request.POST.get('comment')
+            )
+            messages.success(request, "Review added successfully!")
+        except IntegrityError:
+            messages.error(request, "You have already reviewed this tab.")
+        
+    return redirect('tab_detail', tab_id=tab_id)
