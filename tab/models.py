@@ -1,6 +1,13 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+from django.core.exceptions import ValidationError
+
+def validate_pdf_file(value):
+    if not value:
+        raise ValidationError('A PDF file is required')
+    if not str(value).lower().endswith('.pdf'):
+        raise ValidationError('Only PDF files are allowed')
 
 # Create your models here.
 
@@ -17,7 +24,7 @@ class Tab(models.Model):
     artist = models.CharField(max_length=100)
     genre = models.CharField(max_length=50)
     difficulty = models.CharField(max_length=50, choices=DIFFICULTY_CHOICES)
-    file = CloudinaryField('pdf', null=False, blank=False)
+    file = CloudinaryField('pdf', validators=[validate_pdf_file])
     creator = models.ForeignKey(User, on_delete=models.CASCADE,
                                 related_name='tabs')
     created_at = models.DateTimeField(auto_now_add=True)
