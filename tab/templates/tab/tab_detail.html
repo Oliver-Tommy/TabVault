@@ -60,8 +60,11 @@
                     <!-- Tab content -->
                     <p class="card-text">
                         <a href="{{ pdf }}" target="_blank" id="download-btn" class="btn">Download Tab</a>
-                        <object class="mt-4 w-100" data="{{ pdf }}" height="600">
-                            <p>Unable to display PDF file. <a href="{{ pdf }}">Download</a> instead.</p>
+                        <object class="mt-4 w-100" data="{{ pdf }}" height="600" type="application/pdf">
+                            <div>
+                                Unable to display PDF file. 
+                                <a href="{{ pdf }}" class="btn btn-link">Download</a> instead.
+                            </div>
                         </object>
                     </p>
                 </div>
