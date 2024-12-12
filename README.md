@@ -234,15 +234,30 @@ Django's built-in security features handle all data securely:
 - When a user is unregistered, they have access to all tabs, with the ability to search, fully navigate and download.
 - However, the user is unable to leave a review, or access the bookmarking page and feature.
 
+![Image of the unregistered user view](readme/images/user-view.png)
+
 ### Reviews
 - When a user is logged in, they can submit a review for each tab, with a 1-5 star rating and additional text. 
 - The star ratings are stored for each tab, and they are aggregated and averaged, then displayed to the user.
+
+![Image of the reviews section](readme/images/Reviews.png)
 
 ### Navigation bar
 - When a user isn't logged in, the navigation bar displays options to login and register.
 - When a user is logged in, only the logout option appears.
 - The navbar is fully responsive, with a dropdown appearing on tablet-sized screens and smaller.
 - The users login status is displayed.
+
+Navigation bar on desktop:
+
+![Image of the navigation bar on desktop](readme/images/desktop-navbar.png)
+
+Navigation bar on mobile:
+
+![Image of the navigation bar on mobile](readme/images/mobile-nav.png)
+
+![Image of the navigation bar on mobile](readme/images/mobile-nav-opened.png)
+
 
 ### Search bar
 - The navigation bar has a search bar present, which allows users to search for the tab title, artist, and genre.
@@ -252,8 +267,12 @@ Django's built-in security features handle all data securely:
 - The user can access their bookmarked tabs, using the bookmarked tabs button on the navigation bar.
 - In the bookmarked_tabs page, the user's bookmarked tabs are displayed.
 
+![Bookmarks page](readme/images/Bookmarks-page.png)
+
 ### View count
 - When a user visits a particular tab_detail page, the view count increments by 1.
+
+![View count](readme/images/View-count.png)
 
 ## Future Features
 
@@ -311,7 +330,7 @@ Django's built-in security features handle all data securely:
 
 ### Validation Testing
 
-All HTML pages were validated using the <a href="https://validator.w3.org">W3C Markup Validation Service.</a>
+All HTML pages were validated using the <a href="https://validator.w3.org">W3C Markup Validation Service</a>, and were edited to fix errors.
 
 index.html:
 

@@ -9,8 +9,6 @@ def validate_pdf_file(value):
     if not str(value).lower().endswith('.pdf'):
         raise ValidationError('Only PDF files are allowed')
 
-# Create your models here.
-
 
 class Tab(models.Model):
     DIFFICULTY_CHOICES = [
