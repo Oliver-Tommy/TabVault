@@ -86,13 +86,12 @@ The contrast in style between the 'classic' Merriweather and the more 'modern' R
 ### Project Management
 This project was primarily managed through GitHub's project board functionality. Issues were created for all major features and tasks, each categorized using MoSCoW prioritization (Must have, Should have, Could have, Won't have) to ensure proper resource allocation and timely delivery.
 
-The GitHub project board was organized into the following columns:
+The <a href="https://github.com/users/Oliver-Tommy/projects/7/views/1">GitHub project board</a> was organized into the following columns:
 - To Do: New issues and tasks to be worked on
 - In Progress: Currently being developed
 - Done: Completed and verified features
 
 For day-to-day task management and smaller items that didn't need issues, I maintained a physical to-do list to track minor bug fixes, small UI improvements, and other quick tasks.
-
 
 
 ### User Stories
@@ -127,6 +126,8 @@ Must haves:
   - AC2: Then users can search for tabs by genre, difficulty, or artist.
   - AC3: When filtering tabs, the results update dynamically.
 
+<br>
+
 Should haves:
 
 
@@ -152,6 +153,8 @@ Should haves:
   - AC2: Upon searching a title, artist or genre, a list of relevant tabs comes up
   - AC3: If there are no relevant results, the user is given a response
 
+<br>
+
 Could haves: 
 
 
@@ -169,10 +172,13 @@ Could haves:
   - AC1: When visiting the creator dashboard, creators see views and average ratings for each tab.
   - AC2: Then creators can view aggregated metrics (e.g., total uploads, total reviews).
 
+<br>
 
-Image of the project board after sprint completion:
+<strong>Image of the project board after sprint completion:</strong>
 
 ![GitHub Project board](readme/images/Project-board.png)
+
+<br>
 
 ### Wireframes
 
