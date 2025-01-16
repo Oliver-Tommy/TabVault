@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Tab, Review
 from .forms import ReviewForm, UserProfileForm, TabForm
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db import models
 
 
 class TabList(generic.ListView):
@@ -36,7 +37,9 @@ class TabList(generic.ListView):
         elif sort_by == 'top_rated':
             return queryset.annotate(
                 avg_rating=Avg('reviews__rating')
-            ).order_by('-avg_rating')
+            ).order_by(
+                models.F('avg_rating').desc(nulls_last=True)
+            )
         elif sort_by == 'most_reviewed':
             return queryset.annotate(
                 reviews_count=Count('reviews')
