@@ -33,7 +33,9 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     "8000-olivertommy-tabvault-wso4jxwuc82.ws.codeinstitute-ide.net", 
-    "tab-vault-b662f7e82794.herokuapp.com"]
+    "tab-vault-b662f7e82794.herokuapp.com",
+    "127.0.0.1",
+    ]
 
 CSRF_TRUSTED_ORIGINS = ["https://*.codeinstitute-ide.net", "https://*.herokuapp.com"]
 
