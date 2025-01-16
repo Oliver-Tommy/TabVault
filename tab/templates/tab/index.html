@@ -8,16 +8,16 @@
         <div class="col-12 mt-3">
             <div class="sort-options text-center mb-4">
                 <div class="btn-group" role="group">
-                    <a href="?sort=newest" class="btn {% if current_sort == 'newest' %}btn-primary{% else %}btn-outline-primary{% endif %}">
+                    <a href="?sort=newest" class="btn {% if current_sort == 'newest' %}btn-bookmark{% else %}btn-edit{% endif %}">
                         Newest
                     </a>
-                    <a href="?sort=top_rated" class="btn {% if current_sort == 'top_rated' %}btn-primary{% else %}btn-outline-primary{% endif %}">
+                    <a href="?sort=top_rated" class="btn {% if current_sort == 'top_rated' %}btn-bookmark{% else %}btn-edit{% endif %}">
                         Top Rated
                     </a>
-                    <a href="?sort=most_reviewed" class="btn {% if current_sort == 'most_reviewed' %}btn-primary{% else %}btn-outline-primary{% endif %}">
+                    <a href="?sort=most_reviewed" class="btn {% if current_sort == 'most_reviewed' %}btn-bookmark{% else %}btn-edit{% endif %}">
                         Most Reviewed
                     </a>
-                    <a href="?sort=most_viewed" class="btn {% if current_sort == 'most_viewed' %}btn-primary{% else %}btn-outline-primary{% endif %}">
+                    <a href="?sort=most_viewed" class="btn {% if current_sort == 'most_viewed' %}btn-bookmark{% else %}btn-edit{% endif %}">
                         Most Viewed
                     </a>
                 </div>
@@ -25,7 +25,7 @@
         </div>
         <!-- Tab Listings Column -->
         <div class="col-12 mt-3">
-            <div class="row mt-5">
+            <div class="row">
                 {% for tab in tab_list %}
                 <div class="col-md-4">
                     <div class="card card-tab mb-4 shadow-sm">
