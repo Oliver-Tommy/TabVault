@@ -1,11 +1,12 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic
 from django.contrib import messages
-from django.db.models import Avg, Q
+from django.db.models import Avg, Q, Count
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from .models import Tab, Review
-from .forms import ReviewForm
+from .forms import ReviewForm, UserProfileForm, TabForm
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 class TabList(generic.ListView):
@@ -25,6 +26,30 @@ class TabList(generic.ListView):
     model = Tab
     template_name = "tab/index.html"
     paginate_by = 6
+
+    def get_queryset(self):
+        queryset = Tab.objects.all()
+        sort_by = self.request.GET.get('sort', 'newest')
+        
+        if sort_by == 'newest':
+            return queryset.order_by('-created_at')
+        elif sort_by == 'top_rated':
+            return queryset.annotate(
+                avg_rating=Avg('reviews__rating')
+            ).order_by('-avg_rating')
+        elif sort_by == 'most_reviewed':
+            return queryset.annotate(
+                reviews_count=Count('reviews')
+            ).order_by('-reviews_count')
+        elif sort_by == 'most_viewed':
+            return queryset.order_by('-views')
+            
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['current_sort'] = self.request.GET.get('sort', 'newest')
+        return context
 
 
 def tab_detail(request, slug):
@@ -238,3 +263,34 @@ def bookmarked_tabs(request):
     bookmarks = request.user.bookmarked_tabs.all()
     return render(request, "tab/bookmarked_tabs.html",
                   {"bookmarks": bookmarks})
+
+
+@login_required
+def profile_view(request):
+    if request.method == 'POST':
+        form = UserProfileForm(request.POST, request.FILES, instance=request.user.profile)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Profile updated successfully!')
+            return redirect('profile')
+    else:
+        form = UserProfileForm(instance=request.user.profile)
+    
+    user_tabs = Tab.objects.filter(creator=request.user)
+    return render(request, 'tab/profile.html', {
+        'form': form,
+        'user_tabs': user_tabs
+    })
+
+
+class AddTab(LoginRequiredMixin, generic.CreateView):
+    model = Tab
+    form_class = TabForm
+    template_name = 'tab/add_tab.html'
+    
+    def form_valid(self, form):
+        form.instance.creator = self.request.user
+        return super().form_valid(form)
+    
+    def get_success_url(self):
+        return reverse('tab_detail', kwargs={'slug': self.object.slug})

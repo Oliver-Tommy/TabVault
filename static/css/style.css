@@ -264,3 +264,34 @@ body {
     border-color: #E6E6E6;
     cursor: not-allowed;
 }
+
+/* Profile styles */
+.profile-header {
+    padding: 2rem 0;
+    background-color: #f8f9fa;
+    margin-bottom: 2rem;
+}
+
+.profile-picture {
+    border: 3px solid #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.social-links a {
+    margin: 0 10px;
+    color: #6c757d;
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    color: #0d6efd;
+}
+
+/* Tab card styles */
+.tab-card {
+    transition: transform 0.2s;
+}
+
+.tab-card:hover {
+    transform: translateY(-5px);
+}
